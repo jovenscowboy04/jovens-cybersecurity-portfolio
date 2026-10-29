@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Threat model for Jovens Vilbrun's cybersecurity portfolio website using the STRIDE framework.">
+  <title>Threat Model | Jovens Vilbrun - IT & Cybersecurity Portfolio</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/themes.css">
+</head>
+<body>
+
+  <div class="gotham-fullpage-backdrop" aria-hidden="true">
+    <canvas id="gotham-ambient-canvas"></canvas>
+    <div class="gotham-moon"></div>
+    <div class="gotham-batsignal">
+      <div class="batsignal-cone"></div>
+      <div class="batsignal-target">
+        <svg class="batsignal-bat-svg" viewBox="0 0 100 50">
+          <path d="M50,16 C53,10 56,8 58,14 C63,12 72,14 80,22 C78,25 72,26 68,26 C75,32 72,42 63,40 C58,34 54,34 50,38 C46,34 42,34 37,40 C28,42 25,32 32,26 C28,26 22,25 20,22 C28,14 37,12 42,14 C44,8 47,10 50,16 Z"/>
+        </svg>
+      </div>
+    </div>
+    <div class="gotham-fog-fixed"></div>
+    <div class="gotham-skyline-fixed">
+      <svg class="gotham-skyline-svg" viewBox="0 0 1440 130" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="skylineGradThreat" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0f192b"/>
+            <stop offset="100%" stop-color="#040810"/>
+          </linearGradient>
+        </defs>
+        <path d="M0,130 L0,85 L35,85 L35,70 L48,70 L48,45 L52,45 L52,70 L65,70 L65,95 L110,95 L110,60 L140,60 L140,40 L143,20 L145,20 L148,40 L160,40 L160,80 L200,80 L200,55 L245,55 L245,90 L290,90 L290,65 L310,65 L310,35 L313,10 L315,10 L317,35 L335,35 L335,75 L380,75 L380,50 L420,50 L420,95 L470,95 L470,60 L505,60 L505,30 L508,15 L510,15 L512,30 L530,30 L530,85 L590,85 L590,65 L630,65 L630,45 L650,45 L650,80 L700,80 L700,55 L740,55 L740,25 L743,5 L745,5 L747,25 L765,25 L765,70 L820,70 L820,50 L860,50 L860,90 L910,90 L910,65 L950,65 L950,35 L953,18 L955,18 L957,35 L975,35 L975,80 L1030,80 L1030,55 L1070,55 L1070,95 L1120,95 L1120,60 L1155,60 L1155,30 L1158,12 L1160,12 L1162,30 L1180,30 L1180,75 L1240,75 L1240,50 L1280,50 L1280,85 L1330,85 L1330,65 L1365,65 L1365,40 L1368,22 L1370,22 L1372,40 L1390,40 L1390,85 L1440,85 L1440,130 Z" fill="url(#skylineGradThreat)"/>
+      </svg>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="site-logo">
+        <span class="shield-icon">🛡️</span>
+        <span>Jovens<span class="tag">SEC-IT</span></span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="login.html" class="nav-login-link">Login</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="cybersecurity.html">Cybersecurity</a></li>
+          <li><a href="digital-person.html">AI Digital Person</a></li>
+          <li><a href="threat-model.html" class="active">Threat Model</a></li>
+          <li><a href="secure-architecture.html">Secure Architecture</a></li>
+          <li><a href="phishing-ml-project.html">Phishing ML</a></li>
+        <li><a href="assignment6.html">Cross-Site Scripting (XSS) Security</a></li>
+        <li><a href="sql-injection-lab.html">SQL Injection Lab</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main style="padding:0;">
+    <div class="container">
+      <section class="page-hero-banner">
+        <div class="hero-glass-card threat-hero">
+          <span class="badge badge-cyan" style="margin-bottom:.6rem;">PAGE 6 • ASSIGNMENT 2 • STRIDE</span>
+          <h1 style="font-size:2.6rem;margin-bottom:.75rem;">Website <span class="gotham-glow-text">Threat Model</span></h1>
+          <p class="lead" style="margin-bottom:0;color:#cbd5e1;line-height:1.75;">This page models security threats to my portfolio website and Jovens AI using a structured STRIDE approach. It identifies the architecture, important assets, trust boundaries, likely attack paths, risk levels, and practical mitigations.</p>
+        </div>
+      </section>
+
+      <section class="threat-overview-grid reveal-on-scroll">
+        <article class="threat-summary-card">
+          <span class="threat-kicker">SYSTEM</span>
+          <h2>What I Am Protecting</h2>
+          <p>My site is a public HTML/CSS/JavaScript portfolio with four content pages plus Jovens AI. Jovens AI accepts text and voice input, reads from a local knowledge base, changes themes, navigates the site, and can be prepared for future AI/search APIs.</p>
+        </article>
+        <article class="threat-summary-card">
+          <span class="threat-kicker">GOAL</span>
+          <h2>Security Objective</h2>
+          <p>Keep the site trustworthy, available, and safe for visitors while preventing malicious input, unauthorized changes, data exposure, misuse of future API credentials, and abuse of chatbot features.</p>
+        </article>
+      </section>
+
+      <section class="reveal-on-scroll">
+        <div class="section-headline">
+          <span class="badge badge-purple">Architecture</span>
+          <h2>System Architecture &amp; Trust Boundaries</h2>
+          <p>Data crosses a trust boundary whenever it moves from a user-controlled area into the website, Jovens AI, browser storage, or a future external service.</p>
+        </div>
+        <div class="architecture-card">
+          <div class="arch-row">
+            <div class="arch-node"><span>👤</span><strong>User</strong><small>Text / Voice</small></div>
+            <div class="arch-arrow">↓<em>Trust Boundary</em></div>
+            <div class="arch-node"><span>🌐</span><strong>Web Browser</strong><small>HTML / CSS / JavaScript</small></div>
+            <div class="arch-arrow">↓<em>Validated Input</em></div>
+            <div class="arch-node"><span>🤖</span><strong>Jovens AI</strong><small>Commands / Q&amp;A / Voice</small></div>
+          </div>
+          <div class="arch-branches">
+            <div class="arch-node"><span>🧠</span><strong>Local Knowledge</strong><small>Portfolio Data</small></div>
+            <div class="arch-node"><span>💾</span><strong>Browser Storage</strong><small>Theme / Voice Preferences</small></div>
+            <div class="arch-node future-node"><span>☁️</span><strong>Future Backend / AI API</strong><small>External Trust Boundary</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal-on-scroll">
+        <div class="section-headline">
+          <span class="badge badge-emerald">Assets</span>
+          <h2>Important Assets</h2>
+          <p>These are the parts of the system that have value and should be protected.</p>
+        </div>
+        <div class="asset-grid">
+          <div class="asset-card"><span>📄</span><strong>Website Files</strong><p>HTML, CSS, JavaScript, images, and portfolio content.</p></div>
+          <div class="asset-card"><span>🧠</span><strong>Jovens AI Knowledge</strong><p>Structured information used to answer portfolio questions.</p></div>
+          <div class="asset-card"><span>🎙️</span><strong>User Input</strong><p>Typed questions, voice input, and chatbot commands.</p></div>
+          <div class="asset-card"><span>🔐</span><strong>Future API Secrets</strong><p>AI/search credentials must never be exposed in frontend code.</p></div>
+          <div class="asset-card"><span>💾</span><strong>Browser Preferences</strong><p>Theme, voice, and chat preferences stored locally.</p></div>
+          <div class="asset-card"><span>👤</span><strong>Personal Information</strong><p>Public portfolio details should exclude sensitive PII.</p></div>
+        </div>
+      </section>
+
+      <section class="reveal-on-scroll">
+        <div class="section-headline">
+          <span class="badge badge-cyan">STRIDE</span>
+          <h2>Structured Threat Analysis</h2>
+          <p>STRIDE provides a consistent way to identify threats across the website.</p>
+        </div>
+        <div class="stride-grid">
+          <article class="stride-card"><div class="stride-letter">S</div><div><h3>Spoofing</h3><p><strong>Threat:</strong> A fake service or attacker pretends to be a trusted user, server, or AI provider.</p><p><strong>Mitigation:</strong> HTTPS, trusted services, authentication for privileged features, and verified backend connections.</p></div></article>
+          <article class="stride-card"><div class="stride-letter">T</div><div><h3>Tampering</h3><p><strong>Threat:</strong> An attacker changes website files, Jovens AI responses, or stored settings.</p><p><strong>Mitigation:</strong> Secure hosting, MFA, restricted permissions, Git/version control, backups, and input validation.</p></div></article>
+          <article class="stride-card"><div class="stride-letter">R</div><div><h3>Repudiation</h3><p><strong>Threat:</strong> A malicious user performs an action and later denies it.</p><p><strong>Mitigation:</strong> If a backend is added, log important security-relevant events without collecting unnecessary personal data.</p></div></article>
+          <article class="stride-card"><div class="stride-letter">I</div><div><h3>Information Disclosure</h3><p><strong>Threat:</strong> Sensitive information, API keys, or private user data becomes visible.</p><p><strong>Mitigation:</strong> No secrets in frontend code, minimum necessary personal information, HTTPS, and secure server-side storage.</p></div></article>
+          <article class="stride-card"><div class="stride-letter">D</div><div><h3>Denial of Service</h3><p><strong>Threat:</strong> Excessive chatbot/API requests make services slow or unavailable.</p><p><strong>Mitigation:</strong> Rate limits, message-size limits, quotas, caching, and hosting protections.</p></div></article>
+          <article class="stride-card"><div class="stride-letter">E</div><div><h3>Elevation of Privilege</h3><p><strong>Threat:</strong> A normal visitor reaches administrative or backend actions they should not control.</p><p><strong>Mitigation:</strong> Server-side authorization, least privilege, allow-listed commands, and no arbitrary code execution.</p></div></article>
+        </div>
+      </section>
+
+      <section class="reveal-on-scroll">
+        <div class="section-headline">
+          <span class="badge badge-red">Risk Register</span>
+          <h2>Website-Specific Threats</h2>
+          <p>These threats are the most relevant to my current site and its planned AI features.</p>
+        </div>
+        <div class="threat-table-wrap">
+          <table class="threat-table">
+            <thead><tr><th>Threat</th><th>Example</th><th>Risk</th><th>Mitigation</th></tr></thead>
+            <tbody>
+              <tr><td>Cross-Site Scripting (XSS)</td><td>Malicious HTML/JavaScript submitted through Jovens AI input.</td><td><span class="risk risk-high">High</span></td><td>Use <code>textContent</code>, sanitize input, escape output, and deploy a Content Security Policy.</td></tr>
+              <tr><td>API Key Exposure</td><td>An AI/search API key is placed inside client-side JavaScript.</td><td><span class="risk risk-high">High</span></td><td>Store secrets in environment variables and route requests through a backend/serverless endpoint.</td></tr>
+              <tr><td>Prompt Injection</td><td>A visitor tells an AI-enabled Jovens AI to ignore instructions or reveal secrets.</td><td><span class="risk risk-high">High</span></td><td>Keep secrets outside the model context, restrict tools/actions, validate commands, and enforce server-side controls.</td></tr>
+              <tr><td>Unauthorized Modification</td><td>An attacker changes portfolio files or inserts malicious code.</td><td><span class="risk risk-high">High</span></td><td>Strong passwords, MFA, secure hosting permissions, backups, and version control.</td></tr>
+              <tr><td>Information Leakage</td><td>Too much personal information or chatbot data is exposed.</td><td><span class="risk risk-medium">Medium</span></td><td>Publish only professional information, minimize logs, avoid sensitive PII, and use HTTPS.</td></tr>
+              <tr><td>Voice Privacy</td><td>The microphone appears active when the visitor did not intend to record.</td><td><span class="risk risk-medium">Medium</span></td><td>Require user activation, show listening status, provide a stop control, and do not secretly store audio.</td></tr>
+              <tr><td>Malicious Commands</td><td>A user tries to make Jovens AI execute unsupported navigation or arbitrary JavaScript.</td><td><span class="risk risk-medium">Medium</span></td><td>Use an allow-list of safe actions and never evaluate user-supplied JavaScript.</td></tr>
+              <tr><td>Browser Storage Manipulation</td><td>A visitor manually changes localStorage values.</td><td><span class="risk risk-low">Low</span></td><td>Only store non-sensitive preferences and validate values before applying them.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="reveal-on-scroll">
+        <div class="section-headline">
+          <span class="badge badge-purple">Attack Surface</span>
+          <h2>Primary Entry Points</h2>
+        </div>
+        <div class="attack-surface-flow">
+          <span>Jovens AI Text Input</span><b>→</b><span>Voice Input</span><b>→</b><span>Quick Actions</span><b>→</b><span>Theme &amp; Navigation Commands</span><b>→</b><span>localStorage</span><b>→</b><span>Future AI/Search APIs</span>
+        </div>
+      </section>
+
+      <section class="card reveal-on-scroll threat-controls" style="margin-bottom:4rem;">
+        <div class="section-headline" style="margin-bottom:1.4rem;">
+          <span class="badge badge-emerald">Security Controls</span>
+          <h2>Recommended Protections</h2>
+        </div>
+        <div class="controls-grid">
+          <div>✓ HTTPS everywhere</div><div>✓ Input validation &amp; output escaping</div><div>✓ Content Security Policy</div><div>✓ No secrets in frontend code</div><div>✓ Backend proxy for AI/search APIs</div><div>✓ Rate limiting &amp; message limits</div><div>✓ MFA for hosting/admin accounts</div><div>✓ Least-privilege permissions</div><div>✓ Safe command allow-list</div><div>✓ Backups &amp; Git version control</div><div>✓ Visible microphone status</div><div>✓ Minimal collection of personal data</div>
+        </div>
+      </section>
+
+      <section class="card reveal-on-scroll threat-conclusion" style="margin-bottom:5rem;">
+        <span class="badge badge-cyan">Conclusion</span>
+        <h2>Overall Assessment</h2>
+        <p>Overall, my website is fairly low risk because it is mainly a public portfolio. The biggest security concerns come from Jovens AI, user input, voice features, and any future AI connections. I can reduce these risks by validating input, protecting API keys, using HTTPS, and limiting what Jovens AI is allowed to do.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer gotham-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h5 style="color:#fff;font-size:1.15rem;margin-bottom:.4rem;">Jovens Vilbrun</h5>
+          <p style="color:var(--accent-cyan);font-family:var(--font-mono);font-size:.88rem;margin-bottom:.75rem;">Information Technology &bull; Cybersecurity</p>
+          <p class="footer-disclaimer">Assignment 2 threat model using the STRIDE framework.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Site Navigation</h5>
+          <ul>
+            <li><a href="index.html">Page 1: Home</a></li>
+            <li><a href="about.html">Page 2: About Me</a></li>
+            <li><a href="technology.html">Page 3: Technology Interests</a></li>
+            <li><a href="cybersecurity.html">Page 4: Cybersecurity Awareness</a></li>
+            <li><a href="digital-person.html">Page 5: AI Digital Person</a></li>
+            <li><a href="threat-model.html">Page 6: Threat Model</a></li>
+            <li><a href="secure-architecture.html">Page 7: Secure Web Architecture</a></li><li><a href="sql-injection-lab.html">Page 8: SQL Injection Lab</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Threat Modeling Focus</h5>
+          <ul>
+            <li>✓ Architecture &amp; trust boundaries</li>
+            <li>✓ STRIDE analysis</li>
+            <li>✓ Risk levels</li>
+            <li>✓ Security mitigations</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>&copy; <span id="current-year">2026</span> Jovens Vilbrun. All rights reserved.</p><p style="font-family:var(--font-mono);font-size:.8rem;color:var(--accent-cyan);">Threat Model: STRIDE • Defense Planning Active</p></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/themes.js"></script>
+  <script src="js/knowledge.js"></script>
+  <script src="js/chatbot.js"></script>
+</body>
+</html>

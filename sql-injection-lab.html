@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Assignment 5 SQL Injection Security Lab: vulnerable versus secure SQL handling in a controlled educational simulation.">
+  <title>SQL Injection Lab | Jovens Vilbrun</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/themes.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="site-logo"><span class="shield-icon">🛡️</span><span>Jovens<span class="tag">SEC-IT</span></span></a>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <nav><ul class="nav-links">
+        <li><a href="login.html" class="nav-login-link">Account</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="technology.html">Technology</a></li>
+        <li><a href="cybersecurity.html">Cybersecurity</a></li>
+        <li><a href="digital-person.html">AI Digital Person</a></li>
+        <li><a href="threat-model.html">Threat Model</a></li>
+        <li><a href="secure-architecture.html">Secure Architecture</a></li>
+        <li><a href="phishing-ml-project.html">Phishing ML</a></li>
+        <li><a href="assignment6.html">Cross-Site Scripting (XSS) Security</a></li>
+        <li><a href="sql-injection-lab.html" class="active">SQL Injection Lab</a></li>
+      </ul></nav>
+    </div>
+  </header>
+
+  <div class="gotham-fullpage-backdrop" aria-hidden="true">
+    <canvas id="gotham-ambient-canvas"></canvas><div class="gotham-moon"></div><div class="gotham-batsignal"><div class="batsignal-cone"></div><div class="batsignal-target"><svg class="batsignal-bat-svg" viewBox="0 0 100 50"><path d="M50,16 C53,10 56,8 58,14 C63,12 72,14 80,22 C78,25 72,26 68,26 C75,32 72,42 63,40 C58,34 54,34 50,38 C46,34 42,34 37,40 C28,42 25,32 32,26 C28,26 22,25 20,22 C28,14 37,12 42,14 C44,8 47,10 50,16 Z"/></svg></div></div><div class="gotham-fog-fixed"></div>
+  </div>
+
+  <main class="sql-lab-shell">
+    <div class="container">
+      <section class="page-hero-banner sql-lab-hero">
+        <div class="hero-glass-card threat-hero">
+          <span class="badge badge-red" style="margin-bottom:.6rem;">ASSIGNMENT 5 • SQL INJECTION SECURITY LAB</span>
+          <h1 style="font-size:2.65rem;margin-bottom:.75rem;">SQL Injection <span class="gotham-glow-text">Security Lab</span></h1>
+          <p class="lead" style="margin-bottom:0;color:#cbd5e1;line-height:1.75;">A controlled educational comparison showing how unsafe SQL construction can be affected by user input and how secure coding practices reduce the risk.</p>
+        </div>
+      </section>
+
+      <section class="reveal-on-scroll">
+        <div class="section-headline"><span class="badge badge-cyan">Required Concepts</span><h2>Security Controls Used in This Lab</h2><p>The lab focuses on the four areas required by the assignment.</p></div>
+        <div class="sql-lab-required-grid">
+          <article class="sql-lab-concept"><span>✅</span><h3>Input Validation</h3><p>Check format, length, and allowed characters before input reaches database logic.</p></article>
+          <article class="sql-lab-concept"><span>🔗</span><h3>Parameterized Queries</h3><p>Keep SQL commands separate from user-supplied values by binding data as parameters.</p></article>
+          <article class="sql-lab-concept"><span>🧩</span><h3>Prepared Statements</h3><p>Prepare the SQL structure first, then safely supply values without rebuilding the command string.</p></article>
+          <article class="sql-lab-concept"><span>🗄️</span><h3>Secure Database Access</h3><p>Use a protected backend, least-privilege database accounts, encrypted connections, and no credentials in browser code.</p></article>
+        </div>
+      </section>
+
+      <section class="reveal-on-scroll">
+        <div class="section-headline"><span class="badge badge-purple">Interactive Comparison</span><h2>Vulnerable vs. Secure Implementation</h2><p>Type a sample username or use a preset. This simulator only displays how each design would treat the input; it does not execute SQL or connect to a real database.</p></div>
+        <div class="sql-lab-workbench">
+          <div class="sql-lab-toolbar">
+            <div class="sql-lab-field"><label for="sql-lab-input">Username / search input</label><input id="sql-lab-input" type="text" value="jovens" maxlength="80" autocomplete="off" aria-describedby="sql-lab-help"></div>
+            <button id="sql-lab-run" type="button" class="btn btn-primary">Compare Implementations</button>
+          </div>
+          <div class="sql-lab-preset-row" id="sql-lab-help">
+            <button type="button" class="sql-lab-preset" data-sql-preset="jovens">Normal input</button>
+            <button type="button" class="sql-lab-preset" data-sql-preset="vilbrunj@kean.edu">Email-style input</button>
+            <button type="button" class="sql-lab-preset" data-sql-preset="' OR '1'='1">Suspicious SQL-shaped input</button>
+          </div>
+          <div class="sql-lab-columns">
+            <article class="sql-lab-panel vulnerable">
+              <div class="sql-lab-panel-head"><h3>⚠️ Vulnerable Implementation</h3><span class="risk risk-high">Unsafe Pattern</span></div>
+              <p class="card-text">The application directly joins the user's text into the SQL command. That allows special SQL characters to change the structure of the statement.</p>
+              <span class="sql-lab-label">Constructed Query</span><pre id="vulnerable-query" class="sql-lab-code"></pre>
+              <div id="vulnerable-result" class="sql-lab-status neutral" aria-live="polite"></div>
+            </article>
+            <article class="sql-lab-panel secure">
+              <div class="sql-lab-panel-head"><h3>🛡️ Secure Implementation</h3><span class="risk risk-low">Recommended</span></div>
+              <p class="card-text">The SQL structure stays fixed. User input is validated and then supplied separately as a bound parameter.</p>
+              <span class="sql-lab-label">Prepared Statement</span><pre id="secure-query" class="sql-lab-code"></pre>
+              <span class="sql-lab-label">Bound Parameter</span><pre id="secure-params" class="sql-lab-code"></pre>
+              <div id="secure-result" class="sql-lab-status neutral" aria-live="polite"></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal-on-scroll" style="margin-bottom:2.7rem;">
+        <div class="section-headline"><span class="badge badge-emerald">Comparison</span><h2>What Changes in the Secure Version?</h2></div>
+        <div class="sql-lab-table-wrap"><table class="sql-compare-table"><thead><tr><th>Area</th><th>Vulnerable Implementation</th><th>Secure Implementation</th></tr></thead><tbody>
+          <tr><td>User Input</td><td>Trusted too much and inserted directly into SQL text.</td><td>Validated for expected format and length before use.</td></tr>
+          <tr><td>Query Construction</td><td>SQL command and user data are combined into one string.</td><td>SQL command uses placeholders and user data is bound separately.</td></tr>
+          <tr><td>Prepared Statements</td><td>Not used.</td><td>Statement structure is prepared before values are supplied.</td></tr>
+          <tr><td>Database Access</td><td>A broad database account could increase damage if the application is compromised.</td><td>Use least privilege, backend-only credentials, HTTPS/TLS, and restricted database permissions.</td></tr>
+          <tr><td>Result</td><td>Special input may alter the intended SQL logic.</td><td>Input remains data and does not become part of the executable SQL structure.</td></tr>
+        </tbody></table></div>
+      </section>
+
+      <section class="card reveal-on-scroll" style="margin-bottom:2.7rem;">
+        <div class="section-headline" style="margin-bottom:1rem;"><span class="badge badge-cyan">Secure Programming</span><h2>Prepared Statement Example</h2></div>
+        <p class="card-text">A secure server-side implementation uses a placeholder instead of concatenating the username into the SQL string:</p>
+        <pre class="sql-lab-code">// Server-side example
+const sql = "SELECT id, username, role FROM users WHERE username = ?";
+const [rows] = await db.execute(sql, [username]);</pre>
+        <p class="sql-lab-note"><strong>Why this is safer:</strong> the database receives the SQL command and the username as separate values. The username is treated as data instead of being interpreted as part of the SQL command.</p>
+      </section>
+
+      <section class="card reveal-on-scroll" style="margin-bottom:4.5rem;">
+        <div class="section-headline" style="margin-bottom:1rem;"><span class="badge badge-purple">Secure Database Access</span><h2>Defense in Depth</h2></div>
+        <div class="controls-grid">
+          <div>✓ Validate expected input format</div><div>✓ Use parameterized queries</div><div>✓ Use prepared statements</div><div>✓ Keep database credentials on the server</div><div>✓ Apply least-privilege permissions</div><div>✓ Use encrypted database connections</div><div>✓ Avoid showing detailed database errors to users</div><div>✓ Log suspicious input safely</div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer gotham-footer"><div class="container"><div class="footer-grid">
+    <div class="footer-col"><h5 style="color:#fff;font-size:1.15rem;margin-bottom:.4rem;">Jovens Vilbrun</h5><p style="color:var(--accent-cyan);font-family:var(--font-mono);font-size:.88rem;margin-bottom:.75rem;">Information Technology • Cybersecurity</p><p class="footer-disclaimer">Assignment 5 SQL Injection Security Lab.</p></div>
+    <div class="footer-col"><h5>Lab Focus</h5><ul><li>Input validation</li><li>Parameterized queries</li><li>Prepared statements</li><li>Secure database access</li></ul></div>
+    <div class="footer-col"><h5>Implementation</h5><ul><li>Controlled simulation only</li><li>No live database connection</li><li>Vulnerable vs. secure comparison</li><li>Defense-in-depth recommendations</li></ul></div>
+  </div><div class="footer-bottom"><p>&copy; <span id="current-year">2026</span> Jovens Vilbrun. All rights reserved.</p><p style="font-family:var(--font-mono);font-size:.8rem;color:var(--accent-cyan);">Assignment 5 • SQL Injection Security Lab</p></div></div></footer>
+
+  <script src="js/main.js"></script><script src="js/themes.js"></script><script src="js/knowledge.js"></script><script src="js/chatbot.js"></script><script src="js/sql-lab.js"></script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+/* ==========================================================================
+   Cybersecurity & IT Portfolio — Theme Presets & Global Design Tokens
+   Supports: Gotham Default, Purple, Matrix, Red Alert, Ice, Gold
+   Managed via localStorage & CyberBot voice/text commands
+   ========================================================================== */
+
+/* --- Default Gotham Palette --- */
+:root,
+[data-theme="gotham"] {
+  --theme-name: "Gotham Default";
+  --accent-primary: #00e5ff;       /* Electric Cyan */
+  --accent-secondary: #ff3366;     /* Crimson Red */
+  --accent-cyan: #00e5ff;
+  --accent-blue: #3b82f6;
+  --accent-crimson: #ff3366;
+  --accent-gold: #f59e0b;
+  --accent-emerald: #10b981;
+  --accent-purple: #8b5cf6;
+
+  --accent-glow: rgba(0, 229, 255, 0.45);
+  --accent-glow-secondary: rgba(255, 51, 102, 0.35);
+  --border-accent: rgba(0, 229, 255, 0.28);
+  --border-accent-secondary: rgba(255, 51, 102, 0.25);
+
+  --background-primary: #050b14;   /* Deep Gotham Charcoal */
+  --bg-hero: #050b14;
+  --bg-projects: #0a1220;
+  --bg-tech: #08101b;
+  --bg-goals: #0d1420;
+  --bg-footer: #050b14;
+  --bg-card: rgba(13, 20, 32, 0.78);
+  --bg-card-hover: rgba(18, 28, 48, 0.92);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-highlight: #38bdf8;
+
+  --skyline-glow: rgba(0, 229, 255, 0.12);
+  --radar-color: rgba(0, 229, 255, 0.15);
+}
+
+/* --- Purple Preset (Cyberpunk / Violet) --- */
+[data-theme="purple"] {
+  --theme-name: "Purple";
+  --accent-primary: #a855f7;       /* Bright Purple */
+  --accent-secondary: #38bdf8;     /* Cyan/Sky Blue */
+  --accent-cyan: #c084fc;
+  --accent-blue: #818cf8;
+  --accent-crimson: #ec4899;
+  --accent-gold: #fbbf24;
+  --accent-emerald: #34d399;
+  --accent-purple: #a855f7;
+
+  --accent-glow: rgba(168, 85, 247, 0.45);
+  --accent-glow-secondary: rgba(56, 189, 248, 0.35);
+  --border-accent: rgba(168, 85, 247, 0.32);
+  --border-accent-secondary: rgba(56, 189, 248, 0.25);
+
+  --background-primary: #080512;
+  --bg-hero: #080512;
+  --bg-projects: #0e0920;
+  --bg-tech: #0b071a;
+  --bg-goals: #120d28;
+  --bg-footer: #080512;
+  --bg-card: rgba(17, 13, 34, 0.8);
+  --bg-card-hover: rgba(26, 19, 52, 0.92);
+
+  --text-primary: #faf5ff;
+  --text-secondary: #a8a29e;
+  --text-muted: #78716c;
+  --text-highlight: #c084fc;
+
+  --skyline-glow: rgba(168, 85, 247, 0.15);
+  --radar-color: rgba(168, 85, 247, 0.18);
+}
+
+/* --- Matrix Preset (Cyber Terminal Green + Cyan) --- */
+[data-theme="matrix"] {
+  --theme-name: "Matrix";
+  --accent-primary: #10b981;       /* Terminal Emerald */
+  --accent-secondary: #00e5ff;     /* Cyan */
+  --accent-cyan: #22c55e;
+  --accent-blue: #06b6d4;
+  --accent-crimson: #10b981;
+  --accent-gold: #84cc16;
+  --accent-emerald: #10b981;
+  --accent-purple: #14b8a6;
+
+  --accent-glow: rgba(16, 185, 129, 0.45);
+  --accent-glow-secondary: rgba(0, 229, 255, 0.35);
+  --border-accent: rgba(16, 185, 129, 0.32);
+  --border-accent-secondary: rgba(0, 229, 255, 0.25);
+
+  --background-primary: #030d07;
+  --bg-hero: #030d07;
+  --bg-projects: #05160d;
+  --bg-tech: #04120a;
+  --bg-goals: #071c11;
+  --bg-footer: #030d07;
+  --bg-card: rgba(6, 24, 15, 0.8);
+  --bg-card-hover: rgba(10, 36, 22, 0.92);
+
+  --text-primary: #f0fdf4;
+  --text-secondary: #86efac;
+  --text-muted: #4ade80;
+  --text-highlight: #34d399;
+
+  --skyline-glow: rgba(16, 185, 129, 0.15);
+  --radar-color: rgba(16, 185, 129, 0.2);
+}
+
+/* --- Red Alert Preset (Emergency SecOps / Crimson + Orange) --- */
+[data-theme="red-alert"] {
+  --theme-name: "Red Alert";
+  --accent-primary: #ef4444;       /* Alert Red */
+  --accent-secondary: #f97316;     /* Orange */
+  --accent-cyan: #f87171;
+  --accent-blue: #fb923c;
+  --accent-crimson: #dc2626;
+  --accent-gold: #f59e0b;
+  --accent-emerald: #34d399;
+  --accent-purple: #f43f5e;
+
+  --accent-glow: rgba(239, 68, 68, 0.45);
+  --accent-glow-secondary: rgba(249, 115, 22, 0.35);
+  --border-accent: rgba(239, 68, 68, 0.35);
+  --border-accent-secondary: rgba(249, 115, 22, 0.25);
+
+  --background-primary: #120507;
+  --bg-hero: #120507;
+  --bg-projects: #1c080b;
+  --bg-tech: #160609;
+  --bg-goals: #240b0f;
+  --bg-footer: #120507;
+  --bg-card: rgba(28, 10, 13, 0.8);
+  --bg-card-hover: rgba(44, 15, 20, 0.92);
+
+  --text-primary: #fff1f2;
+  --text-secondary: #fda4af;
+  --text-muted: #f43f5e;
+  --text-highlight: #f87171;
+
+  --skyline-glow: rgba(239, 68, 68, 0.15);
+  --radar-color: rgba(239, 68, 68, 0.2);
+}
+
+/* --- Ice Preset (Sub-zero Cyan + Royal Blue) --- */
+[data-theme="ice"] {
+  --theme-name: "Ice";
+  --accent-primary: #38bdf8;       /* Glacier Cyan */
+  --accent-secondary: #2563eb;     /* Deep Blue */
+  --accent-cyan: #38bdf8;
+  --accent-blue: #60a5fa;
+  --accent-crimson: #0284c7;
+  --accent-gold: #38bdf8;
+  --accent-emerald: #06b6d4;
+  --accent-purple: #3b82f6;
+
+  --accent-glow: rgba(56, 189, 248, 0.5);
+  --accent-glow-secondary: rgba(37, 99, 235, 0.35);
+  --border-accent: rgba(56, 189, 248, 0.35);
+  --border-accent-secondary: rgba(37, 99, 235, 0.25);
+
+  --background-primary: #040914;
+  --bg-hero: #040914;
+  --bg-projects: #071224;
+  --bg-tech: #050d1c;
+  --bg-goals: #09172e;
+  --bg-footer: #040914;
+  --bg-card: rgba(9, 22, 42, 0.8);
+  --bg-card-hover: rgba(14, 34, 64, 0.92);
+
+  --text-primary: #f0f9ff;
+  --text-secondary: #93c5fd;
+  --text-muted: #60a5fa;
+  --text-highlight: #7dd3fc;
+
+  --skyline-glow: rgba(56, 189, 248, 0.15);
+  --radar-color: rgba(56, 189, 248, 0.2);
+}
+
+/* --- Gold Preset (Muted Amber / Executive Cyber) --- */
+[data-theme="gold"] {
+  --theme-name: "Gold";
+  --accent-primary: #eab308;       /* Gold */
+  --accent-secondary: #f97316;     /* Warm Amber */
+  --accent-cyan: #facc15;
+  --accent-blue: #eab308;
+  --accent-crimson: #f59e0b;
+  --accent-gold: #fde047;
+  --accent-emerald: #10b981;
+  --accent-purple: #d97706;
+
+  --accent-glow: rgba(234, 179, 8, 0.45);
+  --accent-glow-secondary: rgba(249, 115, 22, 0.35);
+  --border-accent: rgba(234, 179, 8, 0.35);
+  --border-accent-secondary: rgba(249, 115, 22, 0.25);
+
+  --background-primary: #0f0c04;
+  --bg-hero: #0f0c04;
+  --bg-projects: #171307;
+  --bg-tech: #120f05;
+  --bg-goals: #1f1909;
+  --bg-footer: #0f0c04;
+  --bg-card: rgba(24, 19, 7, 0.8);
+  --bg-card-hover: rgba(38, 30, 11, 0.92);
+
+  --text-primary: #fefce8;
+  --text-secondary: #fde047;
+  --text-muted: #ca8a04;
+  --text-highlight: #fef08a;
+
+  --skyline-glow: rgba(234, 179, 8, 0.15);
+  --radar-color: rgba(234, 179, 8, 0.2);
+}
+
+
+/* Compatibility aliases used by the original site styles */
+:root,
+[data-theme] {
+  --bg-primary: var(--background-primary);
+  --glow-cyan: var(--accent-glow);
+  --glow-crimson: var(--accent-glow-secondary);
+  --text-cyan: var(--text-highlight);
+}

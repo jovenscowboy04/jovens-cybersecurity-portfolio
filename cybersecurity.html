@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="My Cybersecurity Awareness - Course reflections, definitions, habits, semester learning goals, and Phishing Awareness Web App proposal.">
+  <title>Cybersecurity Awareness | Jovens Vilbrun - IT & Cybersecurity Portfolio</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/themes.css">
+</head>
+<body>
+
+  <!-- ====================================================
+       FULL-PAGE GOTHAM / BATMAN ATMOSPHERE BACKDROP
+       Fixed across full viewport & page scroll
+       ==================================================== -->
+  <div class="gotham-fullpage-backdrop" aria-hidden="true">
+    <!-- Ambient Canvas (Subtle drifting mist & rain particles) -->
+    <canvas id="gotham-ambient-canvas"></canvas>
+
+    <!-- Faint Full Moon with Atmosphere Glow -->
+    <div class="gotham-moon"></div>
+
+    <!-- Subtle Bat-Signal Searchlight Beam in Cloud Layer -->
+    <div class="gotham-batsignal">
+      <div class="batsignal-cone"></div>
+      <div class="batsignal-target">
+        <svg class="batsignal-bat-svg" viewBox="0 0 100 50">
+          <path d="M50,16 C53,10 56,8 58,14 C63,12 72,14 80,22 C78,25 72,26 68,26 C75,32 72,42 63,40 C58,34 54,34 50,38 C46,34 42,34 37,40 C28,42 25,32 32,26 C28,26 22,25 20,22 C28,14 37,12 42,14 C44,8 47,10 50,16 Z"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Atmospheric Low Fog Layers -->
+    <div class="gotham-fog-fixed"></div>
+
+    <!-- Gotham City Skyline Silhouette along bottom horizon -->
+    <div class="gotham-skyline-fixed">
+      <svg class="gotham-skyline-svg" viewBox="0 0 1440 130" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="skylineGradFixed" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0f192b"/>
+            <stop offset="100%" stop-color="#040810"/>
+          </linearGradient>
+        </defs>
+        <path d="M0,130 L0,85 L35,85 L35,70 L48,70 L48,45 L52,45 L52,70 L65,70 L65,95 L110,95 L110,60 L140,60 L140,40 L143,20 L145,20 L148,40 L160,40 L160,80 L200,80 L200,55 L245,55 L245,90 L290,90 L290,65 L310,65 L310,35 L313,10 L315,10 L317,35 L335,35 L335,75 L380,75 L380,50 L420,50 L420,95 L470,95 L470,60 L505,60 L505,30 L508,15 L510,15 L512,30 L530,30 L530,85 L590,85 L590,65 L630,65 L630,45 L650,45 L650,80 L700,80 L700,55 L740,55 L740,25 L743,5 L745,5 L747,25 L765,25 L765,70 L820,70 L820,50 L860,50 L860,90 L910,90 L910,65 L950,65 L950,35 L953,18 L955,18 L957,35 L975,35 L975,80 L1030,80 L1030,55 L1070,55 L1070,95 L1120,95 L1120,60 L1155,60 L1155,30 L1158,12 L1160,12 L1162,30 L1180,30 L1180,75 L1240,75 L1240,50 L1280,50 L1280,85 L1330,85 L1330,65 L1365,65 L1365,40 L1368,22 L1370,22 L1372,40 L1390,40 L1390,85 L1440,85 L1440,130 Z" fill="url(#skylineGradFixed)"/>
+        <circle cx="144" cy="18" r="2" fill="#ef4444" opacity="0.8"/>
+        <circle cx="314" cy="8" r="2" fill="#ef4444" opacity="0.8"/>
+        <circle cx="509" cy="13" r="2" fill="#ef4444" opacity="0.8"/>
+        <circle cx="744" cy="3" r="2.5" fill="#ef4444" opacity="0.9"/>
+        <circle cx="954" cy="16" r="2" fill="#ef4444" opacity="0.8"/>
+        <circle cx="1159" cy="10" r="2" fill="#ef4444" opacity="0.8"/>
+        <circle cx="1369" cy="20" r="2" fill="#ef4444" opacity="0.8"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="site-logo">
+        <span class="shield-icon">🛡️</span>
+        <span>Jovens<span class="tag">SEC-IT</span></span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        ☰
+      </button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="login.html" class="nav-login-link">Login</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="cybersecurity.html" class="active">Cybersecurity</a></li>
+          <li><a href="digital-person.html">AI Digital Person</a></li>
+          <li><a href="threat-model.html">Threat Model</a></li>
+          <li><a href="secure-architecture.html">Secure Architecture</a></li>
+          <li><a href="phishing-ml-project.html">Phishing ML</a></li>
+        <li><a href="assignment6.html">Cross-Site Scripting (XSS) Security</a></li>
+        <li><a href="sql-injection-lab.html">SQL Injection Lab</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main style="padding: 0;">
+    <div class="container">
+      
+      <!-- Page Hero Header Banner -->
+      <section class="page-hero-banner">
+        <div class="hero-glass-card">
+          <span class="badge badge-emerald" style="margin-bottom: 0.5rem;">Page 4 &bull; Course Connection &amp; Defense</span>
+          <h1 style="font-size: 2.6rem; margin-bottom: 0.75rem;">My Cybersecurity <span class="gotham-glow-text">Awareness</span></h1>
+          <p class="lead" style="margin-bottom: 0; color: #cbd5e1; line-height: 1.75;">
+            This page connects what we're learning in my Computer Security course to how I think about technology and online safety. Cybersecurity is vital because so much of our personal information, schoolwork, communication, and everyday activity depends on computers and the internet.
+          </p>
+        </div>
+      </section>
+
+      <!-- Course Connection Banner & The CIA Triad -->
+      <section class="card reveal-on-scroll" style="margin-bottom: 3rem;">
+        <div class="grid-2" style="align-items: center; gap: 2rem;">
+          <div>
+            <span class="badge badge-cyan" style="margin-bottom: 0.6rem;">Course Connection</span>
+            <h2 style="font-size: 1.5rem; margin-bottom: 0.85rem; color: #ffffff;">Building My Cybersecurity Knowledge</h2>
+            <p style="color: #cbd5e1; font-size: 0.98rem; line-height: 1.8; margin-bottom: 0;">
+              As I continue learning about cybersecurity, I want to better understand how computers and networks are protected from different types of threats. I’m especially interested in topics like network security, malware, passwords, phishing, and how security problems can be found and prevented.
+            </p>
+          </div>
+
+          <div style="background: rgba(10, 18, 32, 0.75); border: 1px solid rgba(0, 229, 255, 0.2); border-radius: var(--radius-md); padding: 1.5rem;">
+            <h4 style="color: var(--accent-cyan); font-family: var(--font-mono); font-size: 0.92rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">The Core Pillars: The CIA Triad</h4>
+            <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+              <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span style="color: var(--accent-cyan); font-weight: bold; font-family: var(--font-mono); font-size: 1.1rem;">C</span>
+                <span style="font-size: 0.9rem; color: #cbd5e1;"><strong style="color: #ffffff;">Confidentiality:</strong> Ensuring sensitive information is accessible only to authorized entities and kept protected from unauthorized interception.</span>
+              </div>
+              <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span style="color: var(--accent-emerald); font-weight: bold; font-family: var(--font-mono); font-size: 1.1rem;">I</span>
+                <span style="font-size: 0.9rem; color: #cbd5e1;"><strong style="color: #ffffff;">Integrity:</strong> Safeguarding the accuracy, completeness, and tamper-resistance of data and software throughout its lifecycle.</span>
+              </div>
+              <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span style="color: var(--accent-purple); font-weight: bold; font-family: var(--font-mono); font-size: 1.1rem;">A</span>
+                <span style="font-size: 0.9rem; color: #cbd5e1;"><strong style="color: #ffffff;">Availability:</strong> Guaranteeing authorized users timely and uninterrupted access to critical networks, systems, and services.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- REQUIRED QUESTIONS SECTION -->
+      <section class="reveal-on-scroll">
+        <div class="section-headline">
+          <span class="badge badge-cyan">Coursework Reflections</span>
+          <h2>Cybersecurity Questions &amp; In-Depth Answers</h2>
+          <p>Articulated perspectives addressing the four required course prompts:</p>
+        </div>
+
+        <!-- Question 1 -->
+        <article class="qa-card">
+          <div class="qa-question-num">Question 01</div>
+          <h3 class="qa-question-title">What does cybersecurity mean to you?</h3>
+          <div class="qa-answer">
+            <p>
+              To me, cybersecurity means keeping computers, networks, accounts, and personal information safe from people who may try to access or misuse them.
+            </p>
+          </div>
+          <div class="qa-tag-list">
+            <span class="qa-tag">Information Security</span>
+            <span class="qa-tag">Network Safety</span>
+            <span class="qa-tag">Account Protection</span>
+            <span class="qa-tag">Data Privacy</span>
+          </div>
+        </article>
+
+        <!-- Question 2 -->
+        <article class="qa-card">
+          <div class="qa-question-num">Question 02</div>
+          <h3 class="qa-question-title">Why is cybersecurity important?</h3>
+          <div class="qa-answer">
+            <p>
+              Cybersecurity is important because so much of our personal and work-related information is stored online. It helps protect people and businesses from hacked accounts, stolen information, scams, malware, and other online threats.
+            </p>
+          </div>
+          <div class="qa-tag-list">
+            <span class="qa-tag">Online Protection</span>
+            <span class="qa-tag">Data Security</span>
+            <span class="qa-tag">Threat Prevention</span>
+            <span class="qa-tag">Anti-Scam &amp; Malware</span>
+          </div>
+        </article>
+
+        <!-- Question 3 -->
+        <article class="qa-card">
+          <div class="qa-question-num">Question 03</div>
+          <h3 class="qa-question-title">What is one cybersecurity habit you currently practice?</h3>
+          <div class="qa-answer">
+            <p>
+              One cybersecurity habit I practice is using strong passwords and being careful with suspicious links or emails. I try not to click on anything that looks unusual or asks for personal information.
+            </p>
+          </div>
+          <div class="qa-tag-list">
+            <span class="qa-tag">Strong Passwords</span>
+            <span class="qa-tag">Phishing Awareness</span>
+            <span class="qa-tag">Email Security</span>
+            <span class="qa-tag">Safe Browsing</span>
+          </div>
+        </article>
+
+        <!-- Question 4 -->
+        <article class="qa-card">
+          <div class="qa-question-num">Question 04</div>
+          <h3 class="qa-question-title">What cybersecurity topic do you want to learn this semester?</h3>
+          <div class="qa-answer">
+            <p>
+              This semester, I would like to learn more about how computer systems are protected from attacks and how security problems are found and fixed. I’m especially interested in learning more about network security, malware, and the different ways attackers try to gain access to systems.
+            </p>
+          </div>
+          <div class="qa-tag-list">
+            <span class="qa-tag">System Protection</span>
+            <span class="qa-tag">Network Security</span>
+            <span class="qa-tag">Malware Analysis</span>
+            <span class="qa-tag">Vulnerability Fixing</span>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- Cybersecurity Project Proposal -->
+      <section id="cybersecurity-proposal" style="margin-top: 3.5rem;" class="reveal-on-scroll">
+        <div class="card" style="border: 1px solid rgba(0, 229, 255, 0.3); background: rgba(13, 20, 32, 0.85); box-shadow: 0 15px 40px rgba(0,0,0,0.6);">
+          
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1rem;">
+            <div style="display: flex; align-items: center; gap: 0.6rem;">
+              <span class="card-icon" style="margin-bottom: 0;">💡</span>
+              <h2 class="card-title" style="font-size: 1.55rem; margin-bottom: 0;">Cybersecurity Project Proposal</h2>
+            </div>
+            <span class="badge badge-cyan">Project Focus: Phishing Awareness</span>
+          </div>
+
+          <p class="card-text" style="font-size: 1.02rem; line-height: 1.8; color: #cbd5e1; margin-top: 0.5rem;">
+            For my cybersecurity project, I plan to create a web application that helps users learn how to recognize phishing attempts. The website would be designed for students and everyday internet users who may come across suspicious emails, messages, or links.
+          </p>
+          <p class="card-text" style="font-size: 1.02rem; line-height: 1.8; color: #cbd5e1;">
+            The application would include examples of phishing and legitimate messages, short quizzes, explanations of warning signs, and tips for staying safe online. It would also avoid collecting any real passwords or sensitive personal information.
+          </p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.35rem; margin-top: 1.75rem;">
+            
+            <div style="background: rgba(10, 18, 32, 0.75); border: 1px solid rgba(0, 229, 255, 0.2); border-radius: var(--radius-md); padding: 1.35rem;">
+              <h4 style="color: var(--accent-cyan); font-size: 0.98rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+                <span>👥</span> Target Users
+              </h4>
+              <p style="color: #cbd5e1; font-size: 0.92rem; line-height: 1.7; margin-bottom: 0;">
+                The website would be designed for students and everyday internet users who want to improve their ability to recognize phishing attempts and stay safer online.
+              </p>
+            </div>
+
+            <div style="background: rgba(10, 18, 32, 0.75); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: var(--radius-md); padding: 1.35rem;">
+              <h4 style="color: var(--accent-emerald); font-size: 0.98rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+                <span>📋</span> Functional Requirements
+              </h4>
+              <p style="color: #cbd5e1; font-size: 0.92rem; line-height: 1.7; margin-bottom: 0;">
+                The application would include examples of phishing and legitimate messages, short quizzes, explanations of common warning signs, safety tips, and a score that shows how well the user did.
+              </p>
+            </div>
+
+            <div style="background: rgba(10, 18, 32, 0.75); border: 1px solid rgba(255, 51, 102, 0.25); border-radius: var(--radius-md); padding: 1.35rem;">
+              <h4 style="color: var(--accent-crimson); font-size: 0.98rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+                <span>⚠️</span> Potential Threats
+              </h4>
+              <p style="color: #cbd5e1; font-size: 0.92rem; line-height: 1.7; margin-bottom: 0;">
+                Phishing emails, fake login pages, malicious links, social engineering, and stolen account information.
+              </p>
+            </div>
+
+            <div style="background: rgba(10, 18, 32, 0.75); border: 1px solid rgba(0, 229, 255, 0.2); border-radius: var(--radius-md); padding: 1.35rem;">
+              <h4 style="color: var(--accent-cyan); font-size: 0.98rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+                <span>🔍</span> Research Question
+              </h4>
+              <p style="color: #cbd5e1; font-size: 0.92rem; line-height: 1.7; margin-bottom: 0;">
+                How can an interactive web application help users better recognize and avoid phishing attacks?
+              </p>
+            </div>
+
+            <div style="background: rgba(10, 18, 32, 0.75); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: var(--radius-md); padding: 1.35rem; grid-column: 1 / -1;">
+              <h4 style="color: var(--accent-emerald); font-size: 0.98rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+                <span>🎯</span> Project Objective
+              </h4>
+              <p style="color: #cbd5e1; font-size: 0.92rem; line-height: 1.7; margin-bottom: 0;">
+                The goal of the project is to improve phishing awareness and help users become more confident when identifying suspicious messages and online scams.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Return Navigation Card -->
+      <section style="margin-top: 3.5rem; margin-bottom: 5rem; text-align: center;" class="reveal-on-scroll">
+        <div class="card" style="display: inline-block; max-width: 620px; text-align: center; border: 1px solid rgba(0, 229, 255, 0.25);">
+          <span style="font-size: 2rem; display: block; margin-bottom: 0.5rem;">🦇</span>
+          <h3 style="margin-bottom: 0.5rem; font-size: 1.4rem;">Completed Portfolio Exploration</h3>
+          <p style="color: #94a3b8; margin-bottom: 1.5rem; line-height: 1.7;">
+            You have explored all 4 pages of Jovens' IT &amp; Cybersecurity portfolio! Feel free to return to the Home page or chat with Jovens AI.
+          </p>
+          <a href="index.html" class="btn-gotham-primary">
+            <span>&larr; Return to Home Page</span>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Site Footer with Gotham Theme & Social Links -->
+  <footer class="site-footer gotham-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-col">
+          <h5 style="color: #ffffff; font-size: 1.15rem; margin-bottom: 0.4rem;">Jovens Vilbrun</h5>
+          <p style="color: var(--accent-cyan); font-family: var(--font-mono); font-size: 0.88rem; margin-bottom: 0.75rem;">
+            Information Technology &bull; Cybersecurity
+          </p>
+          <p class="footer-disclaimer" style="margin-bottom: 1rem;">
+            Built with passion for technology and cybersecurity. Senior academic portfolio for Kean University.
+          </p>
+          <!-- Social & Contact Links -->
+          <div class="footer-social-links">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="GitHub Profile">
+              <span>🐙</span>
+              <span>GitHub</span>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="LinkedIn Profile">
+              <span>💼</span>
+              <span>LinkedIn</span>
+            </a>
+            <a href="mailto:jovens@student.kean.edu" class="footer-social-btn" title="Email Jovens">
+              <span>✉️</span>
+              <span>Email</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Site Navigation</h5>
+          <ul>
+            <li><a href="index.html">Page 1: Home</a></li>
+            <li><a href="about.html">Page 2: About Me</a></li>
+            <li><a href="technology.html">Page 3: Technology Interests</a></li>
+            <li><a href="cybersecurity.html">Page 4: Cybersecurity Awareness</a></li>
+            <li><a href="digital-person.html">Page 5: AI Digital Person</a></li>
+            <li><a href="threat-model.html">Page 6: Threat Model</a></li>
+            <li><a href="secure-architecture.html">Page 7: Secure Web Architecture</a></li><li><a href="sql-injection-lab.html">Page 8: SQL Injection Lab</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Privacy &amp; Security Standards</h5>
+          <ul>
+            <li><span style="color: var(--accent-emerald);">✔</span> Zero Sensitive PII Published</li>
+            <li><span style="color: var(--accent-emerald);">✔</span> Academic Open-Source Compliant</li>
+            <li><span style="color: var(--accent-emerald);">✔</span> Privacy by Design Architecture</li>
+            <li><span style="color: var(--accent-emerald);">✔</span> Client-Side Key Isolation</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year">2026</span> Jovens Vilbrun. All rights reserved.</p>
+        <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan);">
+          Defense Ops: Active &bull; Safe Browsing Verified
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating AI Chatbot Widget -->
+  <button id="chatbot-launcher" class="chatbot-launcher-btn" aria-label="Open AI Assistant" aria-expanded="false">
+    <span class="launcher-pulse-dot"></span>
+    <span>Ask Jovens AI</span>
+  </button>
+
+  <div id="chatbot-window" class="chatbot-window" role="dialog" aria-modal="true" aria-labelledby="chatbot-title">
+    <div class="chatbot-header">
+      <div class="chatbot-header-info">
+        <div class="jovens-ai-avatar header-avatar" aria-hidden="true"><img src="images/profile-avatar.png" alt=""></div>
+        <div>
+          <div id="chatbot-title" class="chatbot-header-title">Jovens AI</div>
+          <div class="chatbot-status">
+            <span id="chatbot-status-dot" style="display:inline-block; width:7px; height:7px; background:#10b981; border-radius:50%;"></span>
+            <span id="chatbot-status-text">Local Knowledge Mode</span>
+          </div>
+        </div>
+      </div>
+      <div class="chatbot-header-actions">
+        <span id="chatbot-mode-badge" class="mode-badge local-active">Offline</span>
+        <button id="chatbot-settings-toggle" class="chatbot-settings-btn" title="AI Model & Key Settings" aria-label="Settings">⚙️</button>
+        <button id="chatbot-close" class="chatbot-close-btn" aria-label="Close Chatbot">&times;</button>
+      </div>
+    </div>
+
+    <!-- Collapsible Settings Panel -->
+    <div id="chatbot-settings-panel" class="chatbot-settings-panel">
+      <div class="settings-panel-title">
+        <span>⚡ Connect Google Gemini AI</span>
+      </div>
+      <p class="settings-panel-desc">
+        Unlock full generative AI (code writing, problem-solving, open reasoning). Get a free key at <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">Google AI Studio</a>.
+      </p>
+      <div class="settings-input-group">
+        <input type="password" id="settings-api-key" class="settings-input" placeholder="Paste Gemini API Key (AIzaSy...)" autocomplete="off">
+        <button id="settings-save-key" class="settings-btn-save">Save</button>
+        <button id="settings-clear-key" class="settings-btn-clear" title="Clear key & use Local Mode">Clear</button>
+      </div>
+      <div style="margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.08);">
+        <button id="settings-auth-fs" type="button" style="width:100%; font-size:0.8rem; padding: 0.45rem 0.6rem; background: rgba(6,182,212,0.1); border: 1px solid var(--accent-cyan); color: var(--accent-cyan); border-radius: var(--radius-sm); cursor: pointer;">
+          📁 Authorize File Editing Access
+        </button>
+        <span id="fs-status-label" style="display:block; font-size:0.75rem; color: var(--text-muted); margin-top: 0.35rem; line-height: 1.4;">Allow Jovens AI to directly edit website files when requested.</span>
+      </div>
+    </div>
+
+    <div class="jovens-ai-portrait-stage" aria-label="Jovens AI digital avatar">
+      <div class="jovens-ai-avatar portrait-avatar">
+        <img src="images/profile-avatar.png" alt="Jovens AI avatar based on Jovens">
+      </div>
+      <div class="jovens-ai-portrait-copy">
+        <strong>Jovens AI</strong>
+        <span>Your personal portfolio assistant</span>
+        <small>Ask me by text or voice — I can answer about Jovens, projects, skills, and this site.</small>
+      </div>
+    </div>
+
+    <div id="chatbot-messages" class="chatbot-messages"></div>
+
+    <div id="chatbot-chips" class="chatbot-chips"></div>
+
+    <div class="chatbot-input-bar">
+      <input type="text" id="chatbot-input" placeholder="Ask about Jovens, coding, or styling changes..." autocomplete="off">
+      <button type="button" id="chatbot-mic-btn" class="chatbot-mic-btn" title="Click to speak (Speech-to-Text)" aria-label="Speech to text">🎤</button>
+      <button type="button" id="chatbot-tts-btn" class="chatbot-mic-btn" title="Toggle spoken Jovens AI replies" aria-label="Toggle text to speech">🔊</button>
+      <button id="chatbot-send" class="chatbot-send-btn" aria-label="Send Message">&#x27A4;</button>
+    </div>
+  </div>
+
+  <script src="js/themes.js"></script>
+  <script src="js/knowledge.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/chatbot.js"></script>
+</body>
+</html>

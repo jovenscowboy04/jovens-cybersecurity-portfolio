@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI Digital Person demo for the Jovens Vilbrun technology portfolio.">
+  <title>AI Digital Person | Jovens Vilbrun</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/themes.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="site-logo">
+        <span class="shield-icon">🛡️</span>
+        <span>Jovens<span class="tag">SEC-IT</span></span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="login.html" class="nav-login-link">Login</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="cybersecurity.html">Cybersecurity</a></li>
+          <li><a href="digital-person.html" class="active">AI Digital Person</a></li>
+          <li><a href="threat-model.html">Threat Model</a></li>
+          <li><a href="secure-architecture.html">Secure Architecture</a></li>
+          <li><a href="phishing-ml-project.html">Phishing ML</a></li>
+        <li><a href="assignment6.html">Cross-Site Scripting (XSS) Security</a></li>
+        <li><a href="sql-injection-lab.html">SQL Injection Lab</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="gotham-fullpage-backdrop" aria-hidden="true">
+    <canvas id="gotham-ambient-canvas"></canvas>
+    <div class="gotham-moon"></div>
+    <div class="gotham-batsignal">
+      <div class="batsignal-cone"></div>
+      <div class="batsignal-target">
+        <svg class="batsignal-bat-svg" viewBox="0 0 100 50"><path d="M50,16 C53,10 56,8 58,14 C63,12 72,14 80,22 C78,25 72,26 68,26 C75,32 72,42 63,40 C58,34 54,34 50,38 C46,34 42,34 37,40 C28,42 25,32 32,26 C28,26 22,25 20,22 C28,14 37,12 42,14 C44,8 47,10 50,16 Z"/></svg>
+      </div>
+    </div>
+    <div class="gotham-fog-fixed"></div>
+    <div class="gotham-skyline-fixed">
+      <svg class="gotham-skyline-svg" viewBox="0 0 1440 130" preserveAspectRatio="none"><path d="M0,130 L0,88 L40,88 L40,63 L72,63 L72,95 L118,95 L118,55 L155,55 L155,82 L205,82 L205,46 L240,46 L240,90 L294,90 L294,59 L335,59 L335,81 L389,81 L389,49 L424,49 L424,94 L470,94 L470,65 L515,65 L515,35 L552,35 L552,78 L607,78 L607,58 L658,58 L658,86 L712,86 L712,48 L755,48 L755,73 L815,73 L815,56 L863,56 L863,91 L920,91 L920,62 L965,62 L965,42 L1008,42 L1008,80 L1060,80 L1060,52 L1105,52 L1105,93 L1161,93 L1161,61 L1207,61 L1207,37 L1248,37 L1248,77 L1300,77 L1300,56 L1346,56 L1346,85 L1394,85 L1394,67 L1440,67 L1440,130 Z" fill="#07101c" opacity=".95"/></svg>
+    </div>
+  </div>
+
+  <main class="digital-person-main digital-person-pro">
+    <section class="container digital-person-hero digital-person-hero-pro">
+      <div>
+        <div class="page-label">JOVENS AI • DIGITAL PERSON STUDIO</div>
+        <h1>Meet <span class="gradient-text">Jovens AI</span></h1>
+        <p>A voice-enabled digital person built into the portfolio. Speak naturally, type a question, or ask Jovens AI to open pages and explain projects.</p>
+      </div>
+      <div class="digital-live-status" id="digital-live-status"><span></span><strong>READY</strong><small>Voice + local knowledge available</small></div>
+    </section>
+
+    <section class="container digital-studio-shell">
+      <div class="digital-avatar-console">
+        <div class="digital-console-topline">
+          <span>AI DIGITAL PERSON</span>
+          <span id="digital-state-badge" class="digital-state-badge">IDLE</span>
+        </div>
+
+        <div class="digital-avatar-stage digital-avatar-stage-pro" id="digital-avatar-stage" data-state="idle">
+          <div class="digital-orbit orbit-one"></div>
+          <div class="digital-orbit orbit-two"></div>
+          <div class="digital-avatar-halo"></div>
+          <div class="digital-face-shell">
+            <img id="digital-avatar-image" src="images/profile-avatar.png" alt="Jovens AI digital person">
+            <img id="digital-mouth-layer" class="digital-mouth-layer" src="images/profile-avatar.png" alt="" aria-hidden="true">
+            <div class="digital-face-scan" aria-hidden="true"></div>
+          </div>
+          <div class="digital-speaking-bars digital-speaking-bars-pro" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <span class="digital-online-dot"></span>
+        </div>
+
+        <div class="digital-avatar-meta digital-avatar-meta-pro">
+          <strong id="digital-avatar-name">Jovens AI</strong>
+          <span id="digital-avatar-mode">READY • LOCAL KNOWLEDGE</span>
+        </div>
+
+        <div class="digital-state-copy" id="digital-state-copy">Ready when you are. Start a voice conversation or type a message.</div>
+
+        <div class="digital-primary-actions">
+          <button type="button" id="digital-voice-conversation" class="digital-voice-conversation-btn">🎙 Start Voice Conversation</button>
+          <button type="button" id="digital-stop-voice" class="digital-stop-voice-btn" disabled>■ Stop</button>
+        </div>
+
+        <div class="digital-mini-controls">
+          <button type="button" id="digital-speech-toggle" class="digital-control-btn active">🔊 British Voice On</button>
+          <button type="button" id="digital-clear-chat" class="digital-control-btn">Clear Chat</button>
+        </div>
+      </div>
+
+      <div class="digital-chat-console">
+        <div class="digital-chat-header">
+          <div><span class="digital-eyebrow">LIVE CONVERSATION</span><h2>Talk with Jovens AI</h2></div>
+          <div class="digital-connection-pill" id="digital-connection-pill"><span></span>LOCAL AI</div>
+        </div>
+
+        <div class="digital-quick-prompts" aria-label="Quick questions">
+          <button type="button" data-prompt="Tell me about Jovens">About Jovens</button>
+          <button type="button" data-prompt="What are Jovens' featured projects?">Projects</button>
+          <button type="button" data-prompt="Tell me about the phishing machine learning project">Phishing ML</button>
+          <button type="button" data-prompt="What are Jovens' career goals?">Career Goals</button>
+        </div>
+
+        <div class="digital-conversation digital-conversation-pro" id="digital-conversation" aria-live="polite">
+          <div class="digital-message bot"><span class="digital-message-avatar"><img src="images/profile-avatar.png" alt=""></span><div><b>Jovens AI</b><p>Hi! I’m Jovens AI. You can ask me about Jovens, his projects, coursework, technology interests, or tell me which page you want to open.</p></div></div>
+        </div>
+
+        <div class="digital-thinking-row" id="digital-thinking-row" hidden>
+          <span class="digital-thinking-avatar"><img src="images/profile-avatar.png" alt=""></span>
+          <span class="digital-thinking-dots"><i></i><i></i><i></i></span>
+          <span>Jovens AI is thinking…</span>
+        </div>
+
+        <form id="digital-question-form" class="digital-question-form digital-question-form-pro">
+          <label class="sr-only" for="digital-question">Ask Jovens AI a question</label>
+          <input id="digital-question" type="text" placeholder="Ask Jovens AI anything about the portfolio..." autocomplete="off">
+          <button type="button" id="digital-talk-btn" class="digital-talk-btn" title="Speak one question">🎤 <span>Speak</span></button>
+          <button type="submit" class="digital-send-btn">Send →</button>
+        </form>
+        <div class="digital-input-status"><span id="digital-listening-status">Ready</span><span>Try: “Open Lava Leap” or “Change theme to purple”</span></div>
+      </div>
+    </section>
+
+    <section class="container digital-builder-pro">
+      <div class="digital-builder-pro-header">
+        <div><p class="digital-eyebrow">CREATE A DIGITAL PERSON</p><h2>Upload → Generate → Talk</h2><p>This keeps the full assignment workflow while Jovens AI remains available immediately.</p></div>
+        <div class="digital-process" aria-label="Digital person assignment process">
+          <span class="active">Upload Photo</span><b>→</b><span>Generate Avatar</span><b>→</b><span>Talk</span><b>→</b><span>Ask</span><b>→</b><span>Receive Answer</span>
+        </div>
+      </div>
+
+      <div class="digital-builder-pro-grid">
+        <div class="digital-builder-panel digital-builder-panel-pro">
+          <div class="digital-section-heading"><span class="digital-step-number">01</span><div><p class="digital-eyebrow">UPLOAD</p><h2>Choose a portrait</h2></div></div>
+          <label class="digital-upload-zone digital-upload-zone-pro" id="digital-upload-zone" for="digital-photo-input">
+            <input id="digital-photo-input" type="file" accept="image/png,image/jpeg,image/webp" hidden>
+            <div class="digital-upload-preview-wrap"><img id="digital-upload-preview" src="images/profile-avatar.png" alt="Uploaded photo preview"></div>
+            <strong>Choose Photo</strong><span>JPG, PNG or WEBP • portrait photos work best</span>
+          </label>
+        </div>
+
+        <div class="digital-builder-panel digital-builder-panel-pro">
+          <div class="digital-section-heading"><span class="digital-step-number">02</span><div><p class="digital-eyebrow">GENERATE</p><h2>Create the avatar</h2></div></div>
+          <label class="digital-style-label" for="digital-style">Avatar style</label>
+          <select id="digital-style" class="digital-style-select"><option value="cyber">Cyber / futuristic</option><option value="professional">Professional technology portrait</option><option value="gotham">Dark Gotham-tech portrait</option></select>
+          <button type="button" id="generate-digital-person" class="btn-gotham-primary digital-generate-btn">✨ Generate Digital Person</button>
+          <p id="digital-generation-status" class="digital-status" role="status" aria-live="polite">Upload a photo to create a new avatar, or use Jovens AI above right now.</p>
+          <div class="digital-ai-note"><strong>AI generation status:</strong> The secure Netlify function can generate an AI avatar when configured. If unavailable, the page clearly uses a local preview instead of pretending AI generation occurred.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container digital-requirements-card digital-requirements-card-pro">
+      <div><p class="digital-eyebrow">ASSIGNMENT PROCESS</p><h2>All required interactions are demonstrated</h2></div>
+      <div class="digital-requirement-grid"><div><b>✓</b><span>Upload a photo</span></div><div><b>✓</b><span>Generate a digital person/avatar</span></div><div><b>✓</b><span>Display the digital person</span></div><div><b>✓</b><span>Talk using speech-to-text</span></div><div><b>✓</b><span>Ask questions</span></div><div><b>✓</b><span>Receive text + spoken answers</span></div></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content"><div><strong>Jovens Vilbrun</strong><p>Information Technology • Cybersecurity</p></div><p>Built with passion for technology and cybersecurity.</p></div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/themes.js"></script>
+  <script src="js/knowledge.js"></script>
+  <script src="js/digital-person.js"></script>
+</body>
+</html>

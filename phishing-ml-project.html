@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Computer Security Kaggle Project: machine learning for phishing URL detection using Logistic Regression and Random Forest.">
+  <title>Phishing ML Project | Jovens Vilbrun</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/themes.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="site-logo"><span class="shield-icon">🛡️</span><span>Jovens<span class="tag">SEC-IT</span></span></a>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <nav><ul class="nav-links">
+        <li><a href="login.html" class="nav-login-link">Account</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="technology.html">Technology</a></li>
+        <li><a href="cybersecurity.html">Cybersecurity</a></li>
+        <li><a href="digital-person.html">AI Digital Person</a></li>
+        <li><a href="threat-model.html">Threat Model</a></li>
+        <li><a href="secure-architecture.html">Secure Architecture</a></li>
+        <li><a href="phishing-ml-project.html" class="active">Phishing ML</a></li>
+        <li><a href="assignment6.html">Cross-Site Scripting (XSS) Security</a></li>
+        <li><a href="sql-injection-lab.html">SQL Injection Lab</a></li>
+      </ul></nav>
+    </div>
+  </header>
+
+  <div class="gotham-fullpage-backdrop" aria-hidden="true">
+    <canvas id="gotham-ambient-canvas"></canvas><div class="gotham-moon"></div><div class="gotham-batsignal"><div class="batsignal-cone"></div><div class="batsignal-target"><svg class="batsignal-bat-svg" viewBox="0 0 100 50"><path d="M50,16 C53,10 56,8 58,14 C63,12 72,14 80,22 C78,25 72,26 68,26 C75,32 72,42 63,40 C58,34 54,34 50,38 C46,34 42,34 37,40 C28,42 25,32 32,26 C28,26 22,25 20,22 C28,14 37,12 42,14 C44,8 47,10 50,16 Z"/></svg></div></div><div class="gotham-fog-fixed"></div>
+  </div>
+
+  <main class="ml-project-shell">
+    <div class="container">
+      <section class="page-hero-banner">
+        <div class="hero-glass-card threat-hero">
+          <span class="badge badge-purple" style="margin-bottom:.6rem;">COMPUTER SECURITY • KAGGLE PROJECT</span>
+          <h1 style="font-size:2.65rem;margin-bottom:.75rem;">Machine Learning for <span class="gotham-glow-text">Phishing URL Detection</span></h1>
+          <p class="lead" style="margin-bottom:.9rem;color:#cbd5e1;line-height:1.75;">This project uses URL features and two machine-learning models to study whether phishing links can be identified automatically.</p>
+          <div class="ml-hero-meta">
+            <span>160,064 records</span><span>13 columns</span><span>2 models</span><span>Security classification</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="ml-project-summary reveal-on-scroll">
+        <article class="card">
+          <span class="badge badge-cyan">Research Question</span>
+          <h2>Can machine learning detect phishing URLs?</h2>
+          <p class="card-text">The main research question is whether structural and lexical URL features can be used to accurately distinguish phishing URLs from legitimate URLs.</p>
+        </article>
+        <article class="card">
+          <span class="badge badge-emerald">Security Problem</span>
+          <h2>Why phishing matters</h2>
+          <p class="card-text">Phishing websites try to trick users into giving away usernames, passwords, financial information, or other sensitive data. Automatic URL screening can help identify suspicious links before a user visits them.</p>
+        </article>
+      </section>
+
+      <section class="card reveal-on-scroll ml-section">
+        <div class="section-headline"><span class="badge badge-purple">Deliverable A</span><h2>Project Proposal</h2></div>
+        <div class="ml-proposal-grid">
+          <div><strong>Project Title</strong><p>Machine Learning for Phishing URL Detection</p></div>
+          <div><strong>Dataset</strong><p><strong>Phishing URLs Dataset with Extracted Features</strong>. The Kaggle dataset contains <strong>160,064 URLs</strong> with features that describe parts of each URL, including URL length, number of dots, HTTPS use, IP address usage, suspicious words, digits, special characters, subdirectories, and entropy. The target variable is <code>label</code>, where <code>1</code> represents phishing and <code>0</code> represents legitimate.</p></div>
+          <div><strong>Security Problem</strong><p>Phishing websites are designed to trick users into visiting fake or malicious websites and giving away sensitive information such as usernames, passwords, or financial information. This project focuses on detecting phishing URLs by using machine learning to analyze patterns and characteristics found in the URL.</p></div>
+          <div><strong>Research Question</strong><p>Can machine learning models accurately identify phishing URLs based on structural and lexical features found in the URL?</p></div>
+          <div class="ml-proposal-wide"><strong>Proposed Methodology</strong><p>The project begins with exploratory data analysis to understand the dataset, check for missing values, duplicates, class imbalance, and important feature patterns. The data is then preprocessed by filling missing values, encoding the <code>tld</code> column, scaling numerical features, removing the raw URL column from the model input, using a stratified 80/20 train/test split, and applying class weighting to help with the large class imbalance. Two machine learning models are trained and compared: <strong>Logistic Regression</strong> and <strong>Random Forest</strong>. The models are evaluated using accuracy, precision, recall, F1-score, ROC-AUC, confusion matrix, false positive rate, and false negative rate. The final results are also interpreted from a cybersecurity perspective.</p></div>
+          <div class="ml-proposal-wide"><strong>Expected Results</strong><p>The expectation is that both Logistic Regression and Random Forest will be able to identify phishing URLs using the extracted URL features. Random Forest may perform better because it can capture more complex patterns between features, while Logistic Regression provides a simpler baseline for comparison. Features such as URL length, number of subdirectories, number of digits, number of dots, suspicious words, and entropy are expected to be useful for identifying phishing URLs. Because the dataset is highly imbalanced, model performance will not be judged only by accuracy. Precision, recall, F1-score, confusion matrix results, and false positive and false negative rates will also be important.</p></div>
+        </div>
+        <a class="btn btn-outline" href="downloads/project_proposal.txt" download>Download Proposal</a>
+      </section>
+
+      <section class="card reveal-on-scroll ml-section">
+        <div class="section-headline"><span class="badge badge-cyan">Step 1</span><h2>Dataset Selection</h2></div>
+        <p class="card-text">I selected the <strong>Phishing URLs Dataset with Extracted Features</strong> from Kaggle. The dataset contains <strong>160,064 URLs</strong> and <strong>13 columns</strong>. The target column is <code>label</code>, where <code>1</code> represents phishing and <code>0</code> represents legitimate URLs.</p>
+        <div class="ml-stats-grid">
+          <div class="ml-stat"><strong>160,064</strong><span>Records</span></div>
+          <div class="ml-stat"><strong>13</strong><span>Total columns</span></div>
+          <div class="ml-stat"><strong>11</strong><span>Engineered predictors</span></div>
+          <div class="ml-stat"><strong>535</strong><span>Observed TLD values</span></div>
+        </div>
+        <h3>Important features</h3>
+        <div class="ml-chip-row">
+          <span>URL length</span><span>Number of dots</span><span>HTTPS</span><span>IP address</span><span>Subdirectories</span><span>Parameters</span><span>Suspicious words</span><span>TLD</span><span>Special characters</span><span>Digits</span><span>Entropy</span>
+        </div>
+        <p class="ml-source-line"><strong>Dataset source:</strong> <a href="https://www.kaggle.com/datasets/victusadi/phishing-urls-dataset-with-extracted-features" target="_blank" rel="noopener noreferrer">Open the Kaggle dataset ↗</a></p>
+      </section>
+
+      <section class="card reveal-on-scroll ml-section">
+        <div class="section-headline"><span class="badge badge-emerald">Step 2</span><h2>Security Problem</h2></div>
+        <p class="card-text">The security problem I am focusing on is phishing websites. Phishing sites are designed to look trustworthy so users will enter sensitive information. This project tests whether machine learning can help identify phishing URLs by looking at characteristics such as length, digits, dots, subdirectories, special characters, and entropy.</p>
+      </section>
+
+      <section class="card reveal-on-scroll ml-section">
+        <div class="section-headline"><span class="badge badge-purple">Step 3</span><h2>Data Exploration</h2><p>I explored the dataset before training any models so I could understand its quality, balance, and feature patterns.</p></div>
+        <div class="ml-findings-grid">
+          <div><strong>Missing values</strong><p>Only the <code>tld</code> column has missing values: <strong>821</strong>.</p></div>
+          <div><strong>Duplicates</strong><p><strong>0</strong> duplicate rows were found.</p></div>
+          <div><strong>Phishing</strong><p><strong>159,244</strong> records (99.49%).</p></div>
+          <div><strong>Legitimate</strong><p><strong>820</strong> records (0.51%).</p></div>
+        </div>
+        <div class="ml-chart-grid">
+          <figure><img src="images/ml-project/class_distribution.png" alt="Bar chart showing phishing and legitimate class distribution"><figcaption>Class distribution</figcaption></figure>
+          <figure><img src="images/ml-project/missing_values.png" alt="Bar chart showing missing TLD values"><figcaption>Missing-value check</figcaption></figure>
+          <figure><img src="images/ml-project/feature_comparison.png" alt="Relative feature comparison between legitimate and phishing URLs"><figcaption>Selected feature patterns</figcaption></figure>
+          <figure><img src="images/ml-project/correlation_matrix.png" alt="Correlation matrix for numeric URL features"><figcaption>Correlation analysis</figcaption></figure>
+        </div>
+        <h3>What I learned</h3>
+        <p class="card-text">Phishing URLs in this dataset tend to be longer and contain more dots, subdirectories, digits, and entropy than legitimate URLs. The biggest issue is the extreme class imbalance, so accuracy alone would not be enough to judge the models.</p>
+      </section>
+
+      <section class="card reveal-on-scroll ml-section">
+        <div class="section-headline"><span class="badge badge-cyan">Step 4</span><h2>Data Preprocessing</h2></div>
+        <p class="card-text">Before training the machine learning models, the dataset was prepared so the data could be used correctly and consistently.</p>
+
+        <div class="ml-preprocess-grid">
+          <article>
+            <h3>1. Handling Missing Values</h3>
+            <p>The dataset contains <strong>821 missing values</strong> in the <code>tld</code> column.</p>
+            <p>Instead of deleting those rows, the missing values were replaced with <code>Unknown</code>. This keeps the records in the dataset while still giving the model a valid category to work with.</p>
+          </article>
+
+          <article>
+            <h3>2. Removing Duplicates</h3>
+            <p>The dataset was checked for duplicate rows.</p>
+            <p><strong>Duplicate rows found: 0</strong></p>
+            <p>Since no duplicates were found, no rows needed to be removed.</p>
+          </article>
+
+          <article>
+            <h3>3. Encoding Categorical Variables</h3>
+            <p>The <code>tld</code> column contains text values such as <code>.com</code>, <code>.org</code>, <code>.net</code>, and <code>.xyz</code>.</p>
+            <p>Machine learning models cannot directly use text categories, so the <code>tld</code> column was converted into numerical form using <strong>one-hot encoding</strong>. This allows the model to use the top-level domain as a feature without treating one domain as being numerically higher or lower than another.</p>
+          </article>
+
+          <article>
+            <h3>4. Feature Scaling</h3>
+            <p>Some numerical features have very different ranges. For example, <code>url_length</code> can have much larger values, <code>has_https</code> is only 0 or 1, and <code>entropy</code> is usually a smaller decimal value.</p>
+            <p>For Logistic Regression, the numerical features were standardized so they are on a more comparable scale. This helps prevent features with larger numeric ranges from having too much influence. Random Forest does not require scaling, but preprocessing was kept consistent through a pipeline.</p>
+          </article>
+
+          <article>
+            <h3>5. Feature Selection</h3>
+            <p>The raw <code>url</code> column was removed from the machine learning input because the dataset already contains extracted URL features.</p>
+            <p>The features used include <code>url_length</code>, <code>num_dots</code>, <code>has_https</code>, <code>has_ip</code>, <code>num_subdirs</code>, <code>num_params</code>, <code>suspicious_words</code>, <code>tld</code>, <code>special_char_count</code>, <code>digits_count</code>, and <code>entropy</code>.</p>
+            <p>The target variable is <code>label</code>, where <strong>1 = phishing</strong> and <strong>0 = legitimate</strong>.</p>
+          </article>
+
+          <article>
+            <h3>6. Handling Imbalanced Classes</h3>
+            <p>The dataset is highly imbalanced:</p>
+            <ul class="ml-clean-list">
+              <li><strong>Phishing URLs:</strong> 159,244</li>
+              <li><strong>Legitimate URLs:</strong> 820</li>
+              <li><strong>Approximately 99.49% phishing</strong></li>
+              <li><strong>Approximately 0.51% legitimate</strong></li>
+            </ul>
+            <p>To reduce the effect of this imbalance, a <strong>stratified train/test split</strong> was used and the machine learning models used <code>class_weight="balanced"</code>. This helps give more importance to the much smaller legitimate class.</p>
+          </article>
+
+          <article>
+            <h3>7. Train/Test Split</h3>
+            <p>The dataset was divided into <strong>80% training data</strong> and <strong>20% testing data</strong>.</p>
+            <p>A stratified split was used so the phishing-to-legitimate ratio stayed similar in both the training and testing sets. This allows the models to train on most of the data while still being evaluated on unseen examples.</p>
+          </article>
+        </div>
+
+        <div class="sql-lab-note">
+          <strong>Final Preprocessing Pipeline:</strong> Raw Dataset → Fill Missing TLD Values → Check Duplicates → Encode TLD → Remove Raw URL Column → Scale Numeric Features → Stratified 80/20 Split → Train Models
+        </div>
+        <p class="card-text"><strong>Why these steps are necessary:</strong> These preprocessing steps help make the dataset clean, usable, and consistent for machine learning. They also help address the strong class imbalance and prepare the data for Logistic Regression and Random Forest.</p>
+      </section>
+
+      <section class="card reveal-on-scroll ml-section">
+        <div class="section-headline"><span class="badge badge-emerald">Step 5</span><h2>Machine-Learning Methods</h2></div>
+        <div class="ml-model-grid">
+          <article><h3>Logistic Regression</h3><p>A simple classification model that estimates the probability of a URL belonging to the phishing class. I used class weighting and standardized numeric features.</p></article>
+          <article><h3>Random Forest</h3><p>An ensemble of decision trees that can capture more complex, nonlinear relationships between URL features. I trained 100 trees with balanced class weighting.</p></article>
+        </div>
+      </section>
+
+      <section class="card reveal-on-scroll ml-section">
+        <div class="section-headline"><span class="badge badge-purple">Step 6</span><h2>Model Evaluation</h2><p>The models were evaluated on the held-out 20% test set.</p></div>
+        <div class="ml-results-table-wrap">
+          <table class="sql-compare-table">
+            <thead><tr><th>Model</th><th>Accuracy</th><th>Precision</th><th>Recall</th><th>F1</th><th>ROC-AUC</th><th>FP</th><th>FN</th></tr></thead>
+            <tbody>
+              <tr><td>Logistic Regression</td><td>1.000</td><td>1.000</td><td>1.000</td><td>1.000</td><td>1.000</td><td>0</td><td>0</td></tr>
+              <tr><td>Random Forest</td><td>1.000</td><td>1.000</td><td>1.000</td><td>1.000</td><td>1.000</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="ml-chart-grid ml-chart-grid-3">
+          <figure><img src="images/ml-project/logistic_confusion_matrix.png" alt="Logistic Regression confusion matrix"><figcaption>Logistic Regression confusion matrix</figcaption></figure>
+          <figure><img src="images/ml-project/random_forest_confusion_matrix.png" alt="Random Forest confusion matrix"><figcaption>Random Forest confusion matrix</figcaption></figure>
+          <figure><img src="images/ml-project/model_comparison.png" alt="Model metric comparison"><figcaption>Metric comparison</figcaption></figure>
+        </div>
+        <div class="ml-warning">
+          <strong>Important interpretation:</strong> perfect scores do not mean phishing can be detected perfectly in the real world. This dataset contains unusually strong class-separation patterns. For example, <code>num_subdirs</code> is <strong>0 for every legitimate URL</strong> in this dataset, while phishing URLs have <strong>at least 2</strong>. That makes the classes much easier to separate and is an important limitation of the dataset.
+        </div>
+      </section>
+
+      <section class="card reveal-on-scroll ml-section">
+        <div class="section-headline"><span class="badge badge-cyan">Step 7</span><h2>Security Interpretation</h2></div>
+        <p class="card-text">This section explains what the machine learning results mean from a cybersecurity point of view, not just how well the models scored.</p>
+        <div class="ml-security-grid">
+          <article>
+            <h3>1. What Is Being Detected?</h3>
+            <p>The models are designed to detect phishing URLs. These URLs may be used to trick users into visiting fake websites and entering usernames, passwords, banking information, credit card details, or other personal information.</p>
+          </article>
+          <article>
+            <h3>2. Which URLs Are Harder to Detect?</h3>
+            <p>Phishing URLs can be harder to detect when they are designed to look like legitimate websites. They may use HTTPS, short and clean-looking addresses, normal domain names, or avoid obvious suspicious words.</p>
+          </article>
+          <article>
+            <h3>3. Important Features</h3>
+            <p>Some of the strongest differences in this dataset appear in <code>url_length</code>, <code>num_subdirs</code>, <code>digits_count</code>, <code>num_dots</code>, and <code>entropy</code>. Phishing URLs generally tend to be longer and more complex than legitimate URLs.</p>
+          </article>
+          <article>
+            <h3>4. False Positives</h3>
+            <p>A false positive happens when a legitimate website is incorrectly classified as phishing. This can block safe websites, create unnecessary security warnings, increase analyst workload, and reduce user trust in the system.</p>
+          </article>
+          <article>
+            <h3>5. False Negatives</h3>
+            <p>A false negative happens when a phishing website is incorrectly classified as legitimate. This is especially dangerous because users may visit the site and expose usernames, passwords, financial information, or other sensitive data.</p>
+          </article>
+          <article>
+            <h3>6. Real Security Use</h3>
+            <p>A phishing detection model like this could be used as one part of a larger security system, such as an email filter, browser warning system, URL reputation service, SOC monitoring workflow, web gateway, or automated link-scanning tool.</p>
+          </article>
+          <article>
+            <h3>7. Limitations</h3>
+            <p>The model only uses URL-based features. A real-world phishing detector should also consider webpage content, domain reputation, certificate information, domain age, DNS information, threat intelligence, and changing attacker behavior.</p>
+          </article>
+          <article>
+            <h3>8. Overall Security Meaning</h3>
+            <p>The results show that URL-based features can be useful for phishing detection. However, perfect results on this dataset do not mean every real phishing attack can be detected. This type of model would be most useful as an additional security layer combined with other detection methods.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card reveal-on-scroll ml-section">
+        <div class="section-headline"><span class="badge badge-emerald">Optional Advanced Component</span><h2>Feature Importance</h2></div>
+        <p class="card-text">I also inspected Random Forest feature importance. The strongest features in this run included number of subdirectories, URL length, number of dots, missing/unknown TLD status, and digit count.</p>
+        <figure class="ml-wide-chart"><img src="images/ml-project/feature_importance.png" alt="Random Forest feature importance chart"><figcaption>Top Random Forest feature importances</figcaption></figure>
+      </section>
+
+      <section class="card reveal-on-scroll ml-section">
+        <div class="section-headline"><span class="badge badge-red">Limitations</span><h2>What the Results Do Not Prove</h2></div>
+        <ul class="ml-clean-list">
+          <li>The dataset is extremely imbalanced.</li>
+          <li>The engineered features contain strong source/class patterns that make separation unusually easy.</li>
+          <li>A random split from the same dataset does not prove the model will generalize to new phishing campaigns.</li>
+          <li>Attackers change URL patterns over time, creating concept drift.</li>
+          <li>This project does not analyze webpage content, reputation, certificates, or live threat intelligence.</li>
+        </ul>
+      </section>
+
+      <section class="card reveal-on-scroll ml-section">
+        <div class="section-headline"><span class="badge badge-purple">Conclusion</span><h2>Project Conclusion</h2></div>
+        <p class="card-text">The project shows that machine learning can identify patterns in URL features that are useful for phishing detection. Both models performed perfectly on this particular test split, but the dataset itself contains very strong class-separation patterns. Because of that, the most important conclusion is not that the models are perfect, but that dataset quality and realistic evaluation are critical when building security machine-learning systems.</p>
+      </section>
+
+      <section class="card reveal-on-scroll ml-section">
+        <div class="section-headline"><span class="badge badge-cyan">Deliverables</span><h2>Source Code & Project Files</h2></div>
+        <div class="ml-download-grid">
+          <a class="ml-download-card" href="downloads/phishing_url_detection_notebook.ipynb" download><strong>Jupyter Notebook</strong><span>Full Python analysis and model code</span></a>
+          <a class="ml-download-card" href="downloads/README_phishing_project.md" download><strong>README</strong><span>Setup and run instructions</span></a>
+          <a class="ml-download-card" href="downloads/model_results.csv" download><strong>Model Results</strong><span>Evaluation metrics in CSV format</span></a>
+          <a class="ml-download-card" href="downloads/project_proposal.txt" download><strong>Proposal</strong><span>One-page proposal content</span></a>
+        </div>
+      </section>
+
+      <section class="card reveal-on-scroll ml-section" style="margin-bottom:4.5rem;">
+        <div class="section-headline"><span class="badge badge-purple">References</span><h2>References & Academic Integrity</h2></div>
+        <p class="card-text">Dataset: Victus Adi, <em>Phishing URLs Dataset with Extracted Features</em>, Kaggle.</p>
+        <p class="card-text">The analysis, preprocessing, model training, evaluation, charts, and security interpretation on this page were produced for this project. External libraries used include pandas, NumPy, Matplotlib, and scikit-learn.</p>
+        <a class="btn btn-outline" href="https://www.kaggle.com/datasets/victusadi/phishing-urls-dataset-with-extracted-features" target="_blank" rel="noopener noreferrer">View Dataset on Kaggle ↗</a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer gotham-footer"><div class="container"><div class="footer-grid">
+    <div class="footer-col"><h5 style="color:#fff;font-size:1.15rem;margin-bottom:.4rem;">Jovens Vilbrun</h5><p style="color:var(--accent-cyan);font-family:var(--font-mono);font-size:.88rem;margin-bottom:.75rem;">Information Technology • Cybersecurity</p><p class="footer-disclaimer">Computer Security machine-learning project.</p></div>
+    <div class="footer-col"><h5>Project</h5><ul><li>Phishing URL detection</li><li>Logistic Regression</li><li>Random Forest</li><li>Security interpretation</li></ul></div>
+    <div class="footer-col"><h5>Evaluation</h5><ul><li>Precision & recall</li><li>F1-score</li><li>ROC-AUC</li><li>False positives & negatives</li></ul></div>
+  </div><div class="footer-bottom"><p>&copy; <span id="current-year">2026</span> Jovens Vilbrun. All rights reserved.</p><p style="font-family:var(--font-mono);font-size:.8rem;color:var(--accent-cyan);">Computer Security • Phishing ML Project</p></div></div></footer>
+
+  <script src="js/main.js"></script><script src="js/themes.js"></script><script src="js/knowledge.js"></script><script src="js/chatbot.js"></script>
+</body>
+</html>

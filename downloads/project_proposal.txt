@@ -1,0 +1,16 @@
+Machine Learning for Phishing URL Detection
+
+Dataset:
+Phishing URLs Dataset with Extracted Features. The Kaggle dataset contains 160,064 URLs with features that describe parts of each URL, including URL length, number of dots, HTTPS use, IP address usage, suspicious words, digits, special characters, subdirectories, and entropy. The target variable is label, where 1 represents phishing and 0 represents legitimate.
+
+Security Problem:
+Phishing websites are designed to trick users into visiting fake or malicious websites and giving away sensitive information such as usernames, passwords, or financial information. This project focuses on detecting phishing URLs by using machine learning to analyze patterns and characteristics found in the URL.
+
+Research Question:
+Can machine learning models accurately identify phishing URLs based on structural and lexical features found in the URL?
+
+Proposed Methodology:
+The project begins with exploratory data analysis to understand the dataset, check for missing values, duplicates, class imbalance, and important feature patterns. The data is then preprocessed by filling missing values, encoding the tld column, scaling numerical features, removing the raw URL column from the model input, using a stratified 80/20 train/test split, and applying class weighting to help with the large class imbalance. Two machine learning models are trained and compared: Logistic Regression and Random Forest. The models are evaluated using accuracy, precision, recall, F1-score, ROC-AUC, confusion matrix, false positive rate, and false negative rate. The final results are also interpreted from a cybersecurity perspective.
+
+Expected Results:
+The expectation is that both Logistic Regression and Random Forest will be able to identify phishing URLs using the extracted URL features. Random Forest may perform better because it can capture more complex patterns between features, while Logistic Regression provides a simpler baseline for comparison. Features such as URL length, number of subdirectories, number of digits, number of dots, suspicious words, and entropy are expected to be useful for identifying phishing URLs. Because the dataset is highly imbalanced, model performance will not be judged only by accuracy. Precision, recall, F1-score, confusion matrix results, and false positive and false negative rates will also be important.

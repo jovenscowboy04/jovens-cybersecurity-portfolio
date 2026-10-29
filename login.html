@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Secure login interface for the Jovens Vilbrun IT & Cybersecurity portfolio.">
+  <title>Login | Jovens Vilbrun</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/themes.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="site-logo">
+        <span class="shield-icon">🛡️</span>
+        <span>Jovens<span class="tag">SEC-IT</span></span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="login.html" class="active nav-login-link">Login</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="cybersecurity.html">Cybersecurity</a></li>
+          <li><a href="digital-person.html">AI Digital Person</a></li>
+          <li><a href="threat-model.html">Threat Model</a></li>
+          <li><a href="secure-architecture.html">Secure Architecture</a></li>
+          <li><a href="phishing-ml-project.html">Phishing ML</a></li>
+        <li><a href="assignment6.html">Cross-Site Scripting (XSS) Security</a></li>
+        <li><a href="sql-injection-lab.html">SQL Injection Lab</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="gotham-fullpage-backdrop" aria-hidden="true">
+    <canvas id="gotham-ambient-canvas"></canvas>
+    <div class="gotham-moon"></div>
+    <div class="gotham-batsignal">
+      <div class="batsignal-cone"></div>
+      <div class="batsignal-target">
+        <svg class="batsignal-bat-svg" viewBox="0 0 100 50">
+          <path d="M50,16 C53,10 56,8 58,14 C63,12 72,14 80,22 C78,25 72,26 68,26 C75,32 72,42 63,40 C58,34 54,34 50,38 C46,34 42,34 37,40 C28,42 25,32 32,26 C28,26 22,25 20,22 C28,14 37,12 42,14 C44,8 47,10 50,16 Z"/>
+        </svg>
+      </div>
+    </div>
+    <div class="gotham-fog-fixed"></div>
+    <div class="gotham-skyline-fixed">
+      <svg class="gotham-skyline-svg" viewBox="0 0 1440 130" preserveAspectRatio="none">
+        <path d="M0,130 L0,88 L40,88 L40,63 L72,63 L72,95 L118,95 L118,55 L155,55 L155,82 L205,82 L205,46 L240,46 L240,90 L294,90 L294,59 L335,59 L335,81 L389,81 L389,49 L424,49 L424,94 L470,94 L470,65 L515,65 L515,35 L552,35 L552,78 L607,78 L607,58 L658,58 L658,86 L712,86 L712,48 L755,48 L755,73 L815,73 L815,56 L863,56 L863,91 L920,91 L920,62 L965,62 L965,42 L1008,42 L1008,80 L1060,80 L1060,52 L1105,52 L1105,93 L1161,93 L1161,61 L1207,61 L1207,37 L1248,37 L1248,77 L1300,77 L1300,56 L1346,56 L1346,85 L1394,85 L1394,67 L1440,67 L1440,130 Z" fill="#07101c" opacity=".95"/>
+      </svg>
+    </div>
+  </div>
+
+  <main class="login-page-main">
+    <section class="container login-shell login-shell-single">
+      <div class="login-card login-card-real" aria-labelledby="login-heading">
+        <div class="login-card-topline"></div>
+        <div class="login-brand-mark" aria-hidden="true">🛡️</div>
+        <div class="login-card-header login-card-header-centered">
+          <div>
+            <p class="login-kicker">JOVENS • SEC-IT</p>
+            <h1 id="login-heading">Welcome Back</h1>
+            <p class="login-subtitle">Sign in to access your role-based account dashboard.</p>
+          </div>
+        </div>
+
+        <form id="login-form" novalidate>
+          <div class="login-field">
+            <label for="login-email">Email address</label>
+            <input id="login-email" name="email" type="text" autocomplete="username" placeholder="Enter your account email" required>
+            <small class="field-error" id="email-error"></small>
+          </div>
+
+          <div class="login-field">
+            <label for="login-password">Password</label>
+            <div class="password-wrap">
+              <input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" minlength="6" required>
+              <button type="button" class="password-toggle" id="password-toggle" aria-label="Show password">Show</button>
+            </div>
+            <small class="field-error" id="password-error"></small>
+          </div>
+
+          <div class="login-options">
+            <label class="remember-check"><input type="checkbox" id="remember-me"> <span>Remember me</span></label>
+            <a href="#" id="forgot-password">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="login-submit">Sign In <span>→</span></button>
+          <div class="login-divider"><span>or</span></div>
+          <button type="button" class="login-guest" id="guest-btn">Continue as Guest</button>
+
+          <section class="demo-account-box" aria-labelledby="demo-account-heading">
+            <div class="demo-account-heading-row">
+              <div>
+                <p class="login-kicker">ACCOUNT ACCESS</p>
+                <h2 id="demo-account-heading">Available Accounts</h2>
+              </div>
+              <span class="demo-role-note">Role-based access</span>
+            </div>
+            <div class="demo-account-grid">
+              <button type="button" class="demo-account-card" id="fill-user-demo">
+                <strong>Regular User</strong>
+                <span>vilbrunj@kean.edu</span>
+                <small>View and edit personal profile</small>
+              </button>
+              <button type="button" class="demo-account-card admin" id="fill-admin-demo">
+                <strong>Administrator</strong>
+                <span>jovensadmin.demo.com</span>
+                <small>Manage users, logs, and content</small>
+              </button>
+            </div>
+          </section>
+
+          <div class="login-status" id="login-status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div>
+        <strong>Jovens Vilbrun</strong>
+        <p>Information Technology • Cybersecurity</p>
+      </div>
+      <p>Built with passion for technology and cybersecurity.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/themes.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

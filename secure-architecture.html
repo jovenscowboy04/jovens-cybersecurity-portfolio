@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Secure web architecture design for Jovens Vilbrun's cybersecurity portfolio website.">
+  <title>Secure Web Architecture | Jovens Vilbrun - IT & Cybersecurity Portfolio</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/themes.css">
+</head>
+<body>
+  <div class="gotham-fullpage-backdrop" aria-hidden="true">
+    <canvas id="gotham-ambient-canvas"></canvas>
+    <div class="gotham-moon"></div>
+    <div class="gotham-batsignal">
+      <div class="batsignal-cone"></div>
+      <div class="batsignal-target">
+        <svg class="batsignal-bat-svg" viewBox="0 0 100 50"><path d="M50,16 C53,10 56,8 58,14 C63,12 72,14 80,22 C78,25 72,26 68,26 C75,32 72,42 63,40 C58,34 54,34 50,38 C46,34 42,34 37,40 C28,42 25,32 32,26 C28,26 22,25 20,22 C28,14 37,12 42,14 C44,8 47,10 50,16 Z"/></svg>
+      </div>
+    </div>
+    <div class="gotham-fog-fixed"></div>
+    <div class="gotham-skyline-fixed">
+      <svg class="gotham-skyline-svg" viewBox="0 0 1440 130" preserveAspectRatio="none"><path d="M0,130 L0,85 L35,85 L35,70 L48,70 L48,45 L52,45 L52,70 L65,70 L65,95 L110,95 L110,60 L140,60 L140,40 L145,20 L150,40 L160,40 L160,80 L200,80 L200,55 L245,55 L245,90 L290,90 L290,65 L310,65 L315,10 L320,65 L335,65 L335,75 L380,75 L380,50 L420,50 L420,95 L470,95 L470,60 L505,60 L510,15 L515,60 L530,60 L530,85 L590,85 L590,65 L630,65 L630,45 L650,45 L650,80 L700,80 L700,55 L740,55 L745,5 L750,55 L765,55 L765,70 L820,70 L820,50 L860,50 L860,90 L910,90 L910,65 L950,65 L955,18 L960,65 L975,65 L975,80 L1030,80 L1030,55 L1070,55 L1070,95 L1120,95 L1120,60 L1155,60 L1160,12 L1165,60 L1180,60 L1180,75 L1240,75 L1240,50 L1280,50 L1280,85 L1330,85 L1330,65 L1365,65 L1370,22 L1375,65 L1390,65 L1390,85 L1440,85 L1440,130 Z" fill="#07111f"/></svg>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="site-logo"><span class="shield-icon">🛡️</span><span>Jovens<span class="tag">SEC-IT</span></span></a>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <nav><ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="technology.html">Technology</a></li>
+        <li><a href="cybersecurity.html">Cybersecurity</a></li>
+          <li><a href="digital-person.html">AI Digital Person</a></li>
+        <li><a href="threat-model.html">Threat Model</a></li>
+        <li><a href="secure-architecture.html" class="active">Secure Architecture</a></li>
+          <li><a href="phishing-ml-project.html">Phishing ML</a></li>
+        <li><a href="assignment6.html">Cross-Site Scripting (XSS) Security</a></li>
+        <li><a href="sql-injection-lab.html">SQL Injection Lab</a></li>
+      </ul></nav>
+    </div>
+  </header>
+
+  <main style="padding:0;">
+    <div class="container">
+      <section class="page-hero-banner">
+        <div class="hero-glass-card threat-hero">
+          <span class="badge badge-cyan" style="margin-bottom:.6rem;">PAGE 7 • ASSIGNMENT 3 • SECURE WEB ARCHITECTURE</span>
+          <h1 style="font-size:2.6rem;margin-bottom:.75rem;">Secure <span class="gotham-glow-text">Web Architecture</span></h1>
+          <p class="lead" style="margin-bottom:0;color:#cbd5e1;line-height:1.75;">This page shows how I would securely structure my portfolio website and Jovens AI as the project grows from a static site into a full web application.</p>
+        </div>
+      </section>
+
+      <section class="reveal-on-scroll">
+        <div class="section-headline"><span class="badge badge-purple">Architecture</span><h2>Proposed Secure Architecture</h2><p>The current portfolio is mostly a static HTML/CSS/JavaScript site. The design below shows how I would securely add a backend, database, accounts, and AI features.</p></div>
+        <div class="architecture-card">
+          <div class="arch-row">
+            <div class="arch-node"><span>👤</span><strong>User</strong><small>Visitor / Student</small></div>
+            <div class="arch-arrow">→<em>HTTPS</em></div>
+            <div class="arch-node"><span>🖥️</span><strong>Frontend</strong><small>HTML / CSS / JavaScript</small></div>
+            <div class="arch-arrow">→<em>Secure Request</em></div>
+            <div class="arch-node"><span>🌐</span><strong>Web Server</strong><small>Netlify / HTTPS Hosting</small></div>
+            <div class="arch-arrow">→<em>Validated API Call</em></div>
+            <div class="arch-node"><span>⚙️</span><strong>Application Layer</strong><small>Serverless Functions / API</small></div>
+          </div>
+          <div class="arch-branches">
+            <div class="arch-node"><span>🗄️</span><strong>Database</strong><small>Protected Application Data</small></div>
+            <div class="arch-node"><span>🔐</span><strong>Authentication</strong><small>Identity Verification</small></div>
+            <div class="arch-node"><span>🤖</span><strong>External AI/Search</strong><small>Backend Only • No Keys in Browser</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal-on-scroll">
+        <div class="section-headline"><span class="badge badge-emerald">Required Components</span><h2>Architecture Components</h2><p>Each component has a specific job and a security control built around it.</p></div>
+        <div class="asset-grid secure-component-grid">
+          <div class="asset-card"><span>🖥️</span><strong>Frontend</strong><p>The pages visitors interact with. HTML, CSS, and JavaScript display my portfolio and Jovens AI interface. User input is treated as untrusted.</p></div>
+          <div class="asset-card"><span>🌐</span><strong>Web Server</strong><p>Netlify can host the site and deliver pages over HTTPS. HTTPS protects information while it travels between the visitor and the site.</p></div>
+          <div class="asset-card"><span>⚙️</span><strong>Application Layer</strong><p>Serverless functions or a backend API would handle sensitive logic, AI requests, validation, and database access instead of putting secrets in browser code.</p></div>
+          <div class="asset-card"><span>🗄️</span><strong>Database</strong><p>A future database would store only information the application actually needs. The database would not be directly accessible from the browser.</p></div>
+          <div class="asset-card"><span>🔑</span><strong>Authentication</strong><p>If accounts are added, users would sign in through a trusted authentication provider with secure password handling and optional MFA.</p></div>
+          <div class="asset-card"><span>🛂</span><strong>Authorization</strong><p>After login, the server would check what each user is allowed to do. Normal visitors would never receive administrator permissions.</p></div>
+          <div class="asset-card"><span>🔒</span><strong>Encryption</strong><p>HTTPS/TLS protects data in transit. Sensitive database information and secrets should also be encrypted or securely stored at rest.</p></div>
+          <div class="asset-card"><span>🍪</span><strong>Session Management</strong><p>Sessions would use secure, HttpOnly, SameSite cookies with expiration. Sessions would be invalidated when users sign out.</p></div>
+          <div class="asset-card"><span>✅</span><strong>Input Validation</strong><p>Text, voice-transcribed input, commands, and API parameters should be checked before processing. Output should be escaped to reduce XSS risk.</p></div>
+        </div>
+      </section>
+
+      <section class="reveal-on-scroll">
+        <div class="section-headline"><span class="badge badge-cyan">Security Flow</span><h2>How Security Is Built Into the Design</h2></div>
+        <div class="attack-surface-flow secure-flow">
+          <span>User Request</span><b>→</b><span>HTTPS</span><b>→</b><span>Input Validation</span><b>→</b><span>Authentication</span><b>→</b><span>Authorization</span><b>→</b><span>Application Logic</span><b>→</b><span>Database / AI Service</span>
+        </div>
+      </section>
+
+      <section class="card reveal-on-scroll threat-controls" style="margin-bottom:3.2rem;">
+        <div class="section-headline" style="margin-bottom:1.4rem;"><span class="badge badge-emerald">Security Controls</span><h2>Important Protections</h2></div>
+        <div class="controls-grid">
+          <div>✓ HTTPS for all traffic</div><div>✓ Validate all user input</div><div>✓ Escape displayed user content</div><div>✓ Keep API keys on the server</div><div>✓ Authentication for private features</div><div>✓ Server-side authorization checks</div><div>✓ Secure session cookies</div><div>✓ Rate limits for Jovens AI/API requests</div><div>✓ Database access only through backend</div><div>✓ Least-privilege permissions</div><div>✓ MFA for admin/hosting accounts</div><div>✓ Backups and Git version control</div>
+        </div>
+      </section>
+
+      <section class="card reveal-on-scroll threat-conclusion" style="margin-bottom:5rem;">
+        <span class="badge badge-cyan">Overall Design</span>
+        <h2>Simple Security Summary</h2>
+        <p>The main idea is to keep the public website simple while moving sensitive work to a protected backend. The browser should never contain private API keys or directly access a database. HTTPS, input validation, authentication, authorization, secure sessions, and server-side controls would protect the application as more features are added.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer gotham-footer"><div class="container"><div class="footer-grid">
+    <div class="footer-col"><h5 style="color:#fff;font-size:1.15rem;margin-bottom:.4rem;">Jovens Vilbrun</h5><p style="color:var(--accent-cyan);font-family:var(--font-mono);font-size:.88rem;margin-bottom:.75rem;">Information Technology &bull; Cybersecurity</p><p class="footer-disclaimer">Assignment 3 secure web architecture.</p></div>
+    <div class="footer-col"><h5>Site Navigation</h5><ul><li><a href="index.html">Page 1: Home</a></li><li><a href="about.html">Page 2: About Me</a></li><li><a href="technology.html">Page 3: Technology Interests</a></li><li><a href="cybersecurity.html">Page 4: Cybersecurity Awareness</a></li><li><a href="digital-person.html">Page 5: AI Digital Person</a></li><li><a href="threat-model.html">Page 6: Threat Model</a></li><li><a href="secure-architecture.html">Page 7: Secure Web Architecture</a></li><li><a href="sql-injection-lab.html">Page 8: SQL Injection Lab</a></li></ul></div>
+    <div class="footer-col"><h5>Architecture Focus</h5><ul><li>✓ Frontend &amp; web server</li><li>✓ Application &amp; database</li><li>✓ Authentication &amp; authorization</li><li>✓ Encryption &amp; validation</li></ul></div>
+  </div><div class="footer-bottom"><p>&copy; <span id="current-year">2026</span> Jovens Vilbrun. All rights reserved.</p><p style="font-family:var(--font-mono);font-size:.8rem;color:var(--accent-cyan);">Assignment 3 • Secure Architecture</p></div></div></footer>
+
+  <script src="js/main.js"></script><script src="js/themes.js"></script><script src="js/knowledge.js"></script><script src="js/chatbot.js"></script>
+</body>
+</html>

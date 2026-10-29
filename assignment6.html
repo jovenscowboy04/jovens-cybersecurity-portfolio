@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Assignment 6: Cross-Site Scripting security lab and research-oriented phishing detection experiment.">
+  <title>Assignment 6 | Jovens Vilbrun</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/themes.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="site-logo"><span class="shield-icon">🛡️</span><span>Jovens<span class="tag">SEC-IT</span></span></a>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <nav><ul class="nav-links">
+        <li><a href="login.html" class="nav-login-link">Account</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="technology.html">Technology</a></li>
+        <li><a href="cybersecurity.html">Cybersecurity</a></li>
+        <li><a href="digital-person.html">AI Digital Person</a></li>
+        <li><a href="threat-model.html">Threat Model</a></li>
+        <li><a href="secure-architecture.html">Secure Architecture</a></li>
+        <li><a href="phishing-ml-project.html">Phishing ML</a></li>
+        <li><a href="assignment6.html" class="active">Cross-Site Scripting (XSS) Security</a></li>
+        <li><a href="sql-injection-lab.html">SQL Injection Lab</a></li>
+      </ul></nav>
+    </div>
+  </header>
+
+  <div class="gotham-fullpage-backdrop" aria-hidden="true">
+    <canvas id="gotham-ambient-canvas"></canvas><div class="gotham-moon"></div><div class="gotham-batsignal"><div class="batsignal-cone"></div><div class="batsignal-target"><svg class="batsignal-bat-svg" viewBox="0 0 100 50"><path d="M50,16 C53,10 56,8 58,14 C63,12 72,14 80,22 C78,25 72,26 68,26 C75,32 72,42 63,40 C58,34 54,34 50,38 C46,34 42,34 37,40 C28,42 25,32 32,26 C28,26 22,25 20,22 C28,14 37,12 42,14 C44,8 47,10 50,16 Z"/></svg></div></div><div class="gotham-fog-fixed"></div>
+  </div>
+
+  <main class="a6-shell">
+    <div class="container">
+      <section class="page-hero-banner">
+        <div class="hero-glass-card threat-hero">
+          <span class="badge badge-purple" style="margin-bottom:.6rem;">ASSIGNMENT 6 • SECURITY + AI RESEARCH</span>
+          <h1 style="font-size:2.7rem;margin-bottom:.75rem;">XSS Security &amp; <span class="gotham-glow-text">Phishing AI Research</span></h1>
+          <p class="lead" style="color:#cbd5e1;line-height:1.75;">A controlled Cross-Site Scripting demonstration followed by a research-oriented machine-learning experiment that compares a baseline phishing detector with improved methods.</p>
+          <div class="ml-hero-meta"><span>XSS controls</span><span>Baseline model</span><span>Research improvement</span><span>Actual experiments</span></div>
+        </div>
+      </section>
+
+      <section class="card a6-section reveal-on-scroll">
+        <div class="section-headline"><span class="badge badge-red">Part A</span><h2>Cross-Site Scripting (XSS) Security Lab</h2></div>
+        <p class="card-text">This lab examines how untrusted user input can affect a web application and how validation, output encoding, and secure handling of user-generated content reduce XSS risk. The demo is intentionally safe: it never executes submitted HTML or JavaScript.</p>
+
+        <div class="a6-control-grid">
+          <article><span>01</span><h3>Input Validation</h3><p>Check whether input matches the expected format and reject content that does not belong in the field.</p></article>
+          <article><span>02</span><h3>Output Encoding</h3><p>Convert special HTML characters into display-safe text before showing user-generated content.</p></article>
+          <article><span>03</span><h3>Secure User Content</h3><p>Render untrusted content as text instead of inserting it as executable HTML.</p></article>
+        </div>
+
+        <div class="a6-flow" aria-label="XSS security process">
+          <div><strong>Security Problem</strong><span>Untrusted input may contain HTML or script-like content.</span></div><b>→</b>
+          <div><strong>Security Control</strong><span>Validate input and encode output.</span></div><b>→</b>
+          <div><strong>Mitigation</strong><span>Treat user content as data, not executable markup.</span></div><b>→</b>
+          <div><strong>Security Improvement</strong><span>Lower risk of script execution and page manipulation.</span></div>
+        </div>
+
+        <div class="a6-xss-demo">
+          <div class="a6-demo-toolbar">
+            <label for="xss-input"><strong>Untrusted comment input</strong></label>
+            <textarea id="xss-input" rows="4" spellcheck="false">Welcome to my portfolio!</textarea>
+            <div class="a6-preset-row">
+              <button type="button" data-xss-preset="normal">Normal comment</button>
+              <button type="button" data-xss-preset="html">HTML-shaped input</button>
+              <button type="button" data-xss-preset="script">Script-shaped input</button>
+              <button type="button" id="xss-analyze" class="btn btn-primary">Compare Handling</button>
+            </div>
+          </div>
+          <div class="a6-xss-columns">
+            <article class="a6-xss-panel vulnerable">
+              <div class="a6-panel-title"><h3>⚠️ Vulnerable Concept</h3><span>Unsafe Pattern</span></div>
+              <p>Unsafe code may insert a user's string directly into an HTML template. If the browser interprets that string as markup, attacker-controlled content can change the page or run script.</p>
+              <small>SIMULATED HTML STRING — NOT EXECUTED</small>
+              <pre id="xss-unsafe-code"></pre>
+              <div id="xss-risk-result" class="a6-result warning" aria-live="polite"></div>
+            </article>
+            <article class="a6-xss-panel secure">
+              <div class="a6-panel-title"><h3>🛡️ Secure Implementation</h3><span>Recommended</span></div>
+              <p>The secure example validates the field and renders the submitted value with text-safe handling. Special characters remain visible text instead of becoming active HTML.</p>
+              <small>ENCODED OUTPUT</small>
+              <pre id="xss-safe-code"></pre>
+              <div id="xss-safe-preview" class="a6-safe-preview"></div>
+              <div class="a6-result success">The preview uses safe text rendering, so submitted markup is displayed rather than executed.</div>
+            </article>
+          </div>
+        </div>
+
+        <div class="a6-note"><strong>Defense in depth:</strong> output encoding is the primary protection when displaying user content. Input validation, Content Security Policy, trusted templating, and avoiding unsafe DOM APIs provide additional protection.</div>
+      </section>
+
+      <section class="card a6-section reveal-on-scroll">
+        <div class="section-headline"><span class="badge badge-cyan">Step 1</span><h2>Define the Research Problem</h2></div>
+        <div class="a6-research-grid">
+          <article><strong>Research Topic</strong><p>Machine learning for phishing URL detection.</p></article>
+          <article><strong>Problem Statement</strong><p>Phishing URLs can imitate legitimate sites and expose users to credential theft or financial loss. A detector must identify malicious links without incorrectly blocking too many safe websites.</p></article>
+          <article><strong>Research Question</strong><p>Can an expanded engineered feature set and class balancing improve a simple Logistic Regression baseline for phishing URL detection, and how does a balanced Random Forest compare under the same test split?</p></article>
+          <article><strong>Dataset</strong><p><a href="https://www.kaggle.com/datasets/victusadi/phishing-urls-dataset-with-extracted-features" target="_blank" rel="noopener noreferrer">Phishing URLs Dataset with Extracted Features ↗</a><br>160,064 records and 13 columns.</p></article>
+          <article class="wide"><strong>Research Objective</strong><p>Measure whether a stronger feature representation and imbalance-aware training reduce security errors, especially false positives on legitimate URLs, while maintaining high phishing recall.</p></article>
+        </div>
+      </section>
+
+      <section class="card a6-section reveal-on-scroll">
+        <div class="section-headline"><span class="badge badge-purple">Step 2</span><h2>Match the Problem to a Research Method</h2></div>
+        <div class="a6-method-layout">
+          <article class="a6-method-primary">
+            <span class="badge badge-emerald">Selected Method Family</span>
+            <h3>Traditional Machine Learning</h3>
+            <p>The dataset is structured tabular data made from engineered URL features, so traditional classification methods are a strong fit. They train efficiently, are easy to compare, and make it possible to study the effect of feature selection and class balancing.</p>
+          </article>
+          <article><h3>Why Logistic Regression?</h3><p>It provides an interpretable baseline and shows how far a simple linear classifier can go using a small set of URL features.</p></article>
+          <article><h3>Why Random Forest?</h3><p>It can model nonlinear relationships and interactions between URL characteristics while still providing feature-importance information.</p></article>
+        </div>
+      </section>
+
+      <section class="card a6-section reveal-on-scroll">
+        <div class="section-headline"><span class="badge badge-cyan">Step 3</span><h2>Establish a Baseline Model</h2></div>
+        <p class="card-text">The baseline is a standard Logistic Regression model trained on only three simple features: <code>url_length</code>, <code>num_dots</code>, and <code>entropy</code>. No class weighting is applied. This creates a clear starting point before adding more features and imbalance handling.</p>
+        <div class="a6-baseline-stats">
+          <div><strong>99.70%</strong><span>Accuracy</span></div><div><strong>99.85%</strong><span>F1</span></div><div class="warn"><strong>46.95%</strong><span>False Positive Rate</span></div><div><strong>0.06%</strong><span>False Negative Rate</span></div>
+        </div>
+        <div class="a6-callout warning"><strong>Important:</strong> the baseline looks excellent if only accuracy is considered, but it incorrectly flagged <strong>77 of 164 legitimate test URLs</strong> as phishing. This demonstrates why accuracy alone is misleading for this imbalanced dataset.</div>
+      </section>
+
+      <section class="card a6-section reveal-on-scroll">
+        <div class="section-headline"><span class="badge badge-emerald">Step 4</span><h2>Proposed Research Improvement</h2></div>
+        <div class="a6-improvement-grid">
+          <article><strong>Limitation</strong><p>The baseline uses only three features and does not account for the large class imbalance, causing many legitimate URLs to be flagged as phishing.</p></article>
+          <article><strong>Proposed Change</strong><p>Expand the feature set, one-hot encode TLD, standardize numeric inputs for Logistic Regression, and use <code>class_weight="balanced"</code>. A balanced Random Forest is also tested as a nonlinear comparison.</p></article>
+          <article><strong>Why It Should Help</strong><p>More URL signals give the models additional evidence, while class weighting increases the importance of the rare legitimate class during training.</p></article>
+          <article><strong>How It Is Tested</strong><p>Every model uses the same stratified 80/20 split and the same test records. Accuracy, precision, recall, F1, ROC-AUC, PR-AUC, false-positive rate, and false-negative rate are compared.</p></article>
+        </div>
+      </section>
+
+      <section class="card a6-section reveal-on-scroll">
+        <div class="section-headline"><span class="badge badge-purple">Step 5</span><h2>Experimental Design</h2></div>
+        <div class="a6-experiment-grid">
+          <article><h3>Dataset</h3><p>160,064 phishing/legitimate URL records from Kaggle. Missing TLD values are labeled <code>Unknown</code>.</p></article>
+          <article><h3>Split Strategy</h3><p>Stratified 80% training / 20% testing with <code>random_state=42</code>. The same split is reused for every model.</p></article>
+          <article><h3>Baseline</h3><p>Logistic Regression using URL length, dot count, and entropy with no class weighting.</p></article>
+          <article><h3>Improved Methods</h3><p>Balanced Logistic Regression and balanced Random Forest using the expanded engineered feature set and TLD.</p></article>
+          <article><h3>Evaluation</h3><p>Accuracy, Precision, Recall, F1, ROC-AUC, PR-AUC, confusion matrix, False Positive Rate, and False Negative Rate.</p></article>
+          <article><h3>Fair Comparison</h3><p>The test set is held out from training and is not used to tune the models. All approaches are evaluated on the same observations.</p></article>
+        </div>
+      </section>
+
+      <section class="card a6-section reveal-on-scroll">
+        <div class="section-headline"><span class="badge badge-red">Step 6</span><h2>Analyze and Discuss Results</h2></div>
+        <div class="ml-results-table-wrap">
+          <table class="sql-compare-table a6-results-table">
+            <thead><tr><th>Method</th><th>Accuracy</th><th>Precision</th><th>Recall</th><th>F1</th><th>FPR</th><th>FNR</th></tr></thead>
+            <tbody>
+              <tr><td>Baseline Logistic Regression</td><td>99.70%</td><td>99.76%</td><td>99.94%</td><td>99.85%</td><td class="metric-bad">46.95%</td><td>0.06%</td></tr>
+              <tr><td>Improved Balanced Logistic Regression</td><td>100%</td><td>100%</td><td>100%</td><td>100%</td><td class="metric-good">0%</td><td>0%</td></tr>
+              <tr><td>Improved Balanced Random Forest</td><td>100%</td><td>100%</td><td>100%</td><td>100%</td><td class="metric-good">0%</td><td>0%</td></tr>
+              <tr><td>Ablation: remove num_subdirs and TLD</td><td>99.58%</td><td>99.99%</td><td>99.59%</td><td>99.79%</td><td>1.22%</td><td>0.41%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="a6-chart-grid">
+          <figure><img src="images/assignment6/baseline_vs_improved.png" alt="Chart comparing baseline and improved model metrics"><figcaption>Baseline vs. improved methods</figcaption></figure>
+          <figure><img src="images/assignment6/research_feature_importance.png" alt="Random Forest feature importance chart"><figcaption>Top Random Forest feature signals</figcaption></figure>
+          <figure><img src="images/assignment6/baseline_confusion.png" alt="Baseline Logistic Regression confusion matrix"><figcaption>Baseline confusion matrix</figcaption></figure>
+          <figure><img src="images/assignment6/improved_confusion.png" alt="Improved Logistic Regression confusion matrix"><figcaption>Improved confusion matrix</figcaption></figure>
+        </div>
+        <div class="a6-discussion-grid">
+          <article><h3>Did the improvement help?</h3><p>Yes on this held-out test split. The baseline misclassified 77 legitimate URLs as phishing, while the improved balanced methods had no test-set errors.</p></article>
+          <article><h3>Which metric changed most?</h3><p>The most meaningful change was the false-positive rate, which dropped from 46.95% for the baseline to 0% for the two improved models.</p></article>
+          <article><h3>Are the perfect scores realistic?</h3><p>They should be interpreted cautiously. This dataset contains unusually strong class-separation signals, so perfect test performance does not prove perfect real-world phishing detection.</p></article>
+          <article><h3>What did the ablation show?</h3><p>Removing the especially strong <code>num_subdirs</code> and TLD signals reduced performance. This suggests the dataset's engineered features strongly influence the results.</p></article>
+        </div>
+        <div class="a6-callout warning"><strong>Research limitation:</strong> the Random Forest ranked <code>tld_Unknown</code> and <code>num_subdirs</code> among its strongest signals. Their unusually strong relationship with the target may reflect dataset construction patterns that would not generalize to all real-world URLs. Testing on a second independent dataset would strengthen the conclusion.</div>
+      </section>
+
+      <section class="card a6-section reveal-on-scroll">
+        <div class="section-headline"><span class="badge badge-emerald">Deliverables</span><h2>Code &amp; Reproducibility</h2></div>
+        <p class="card-text">The experiment files below reproduce the baseline, improved methods, evaluation metrics, and feature analysis.</p>
+        <div class="ml-download-grid">
+          <a class="ml-download-card" href="downloads/assignment6_research_experiments.ipynb" download><strong>Jupyter Notebook</strong><span>Baseline, improved methods, evaluation, and ablation.</span></a>
+          <a class="ml-download-card" href="downloads/assignment6_research_experiment.py" download><strong>Python Script</strong><span>Runnable source code for the research experiment.</span></a>
+          <a class="ml-download-card" href="downloads/assignment6_experiment_results.csv" download><strong>Results CSV</strong><span>Model metrics and confusion-matrix counts.</span></a>
+          <a class="ml-download-card" href="downloads/assignment6_research_README.md" download><strong>README</strong><span>Dependencies and reproduction instructions.</span></a>
+        </div>
+      </section>
+
+      <section class="card a6-section reveal-on-scroll">
+        <div class="section-headline"><span class="badge badge-cyan">Conclusion</span><h2>What the Experiment Demonstrates</h2></div>
+        <p class="card-text">The project shows why a research-oriented security experiment needs more than a high accuracy number. The simple baseline already appears strong because the dataset is overwhelmingly phishing, but it performs poorly on the rare legitimate class. Expanding the feature set and accounting for class imbalance produces much stronger test-set behavior. At the same time, the ablation study and feature importance results show that the dataset contains unusually strong signals, so additional external validation is necessary before claiming real-world reliability.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer"><div class="container"><div class="footer-bottom"><p>&copy; <span id="current-year">2026</span> Jovens Vilbrun. All rights reserved.</p><p style="font-family:var(--font-mono);font-size:.8rem;color:var(--accent-cyan);">Assignment 6 • XSS Security • AI Research</p></div></div></footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/themes.js"></script>
+  <script src="js/knowledge.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script src="js/assignment6.js"></script>
+</body>
+</html>
